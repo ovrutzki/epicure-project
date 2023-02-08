@@ -1,16 +1,17 @@
 import React from "react";
-import "./ SingelDish.css";
+import "./SingleDish.css";
 
 
-const  SingelDish = (props: any) => {
+const   SingleDish = (props: any) => {
 
       return (<>
       <div className="dish">
         <img className="food" src={props.dish.img} alt="" />
         <div className="info">
           <h1>{props.dish.name}</h1>
-          <p>{props.dish.chef}</p>
-          <img className ="rating" src={props.dish.rating} alt="" />
+          <img src={props.dish.info} alt=""/>
+          <p>{props.dish.about}</p>
+          <p>{props.dish.price}</p>
         </div>
       </div>
 
@@ -18,4 +19,4 @@ const  SingelDish = (props: any) => {
       )
     }
 
-export default  SingelDish;
+export default   SingleDish;

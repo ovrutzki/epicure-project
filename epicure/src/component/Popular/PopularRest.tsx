@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./Popular.css";
 import data from "../../epicure.json";
 import SingleRest from "../SingleRest/SingleRest";
-import Restaurant from "../Restaurant/Restaurant";
 
-const Popular: React.FC = () => {
+const PopularRest: React.FC = () => {
   const popular: any = data.restaurant.filter((rest) =>
     rest.rating.includes("5")
   );
@@ -27,4 +26,4 @@ const Popular: React.FC = () => {
   );
 };
 
-export default Popular;
+export default PopularRest;
