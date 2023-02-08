@@ -6,7 +6,7 @@ import Restaurant from "../Restaurant/Restaurant";
 
 const Popular: React.FC = () => {
   const popular: any = data.restaurant.filter((rest) =>
-    rest.rating.includes("4")
+    rest.rating.includes("5")
   );
   console.log(popular);
 
