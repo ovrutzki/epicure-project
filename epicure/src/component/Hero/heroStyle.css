@@ -1,0 +1,62 @@
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+#background-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+}
+#white-div {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  width: 68vh;
+  padding: 10px 10%;
+  /* margin: 236px 332px; */
+  background-color: rgba(255, 255, 255, 0.695);
+}
+#white-div p {
+  z-index: 1;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 1.9700000286102295px;
+}
+#search-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px black solid;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  padding: 6px 12px 6px 12px;
+  gap: 10px;
+}
+input {
+  all: unset;
+  font-family: "Helvetica bold";
+  font-size: 25px;
+  /* font-weight: bolder; */
+  height: 37px;
+  width: 80%;
+  color: rgb(0, 0, 0);
+
+}
+input::placeholder{
+    font-family: "Helvetica";
+    font-size: 25px;
+
+}

@@ -1,0 +1,127 @@
+{
+  "chefs": [
+    {
+      "id": 1,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 2,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 3,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 4,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 5,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 6,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 7,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 8,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    },
+    {
+      "id": 9,
+      "name": "Yosi Shitrit",
+      "restaurant": [],
+      "age": 1,
+      "info": "",
+      "img": 1
+    }
+  ],
+  "restaurant": [
+    {
+      "id": 4,
+      "name": "Claro",
+      "address": [],
+      "chef": "Ran Shmueli",
+      "chefId": 1,
+      "open": 1,
+      "img": "https://i.ibb.co/WnMSxk0/claro-3x.png",
+      "dishes": [],
+      "rating": "/image/rating/4.svg"
+    },
+    {
+      "id": 4,
+      "name": "Lumina",
+      "address": [],
+      "chef": "Meir Adoni",
+      "chefId": 1,
+      "open": 1,
+      "img": "https://i.ibb.co/9HnJGWb/big-Lumina.png",
+      "dishes": [],
+      "rating": "/image/rating/4.svg"
+    },
+    {
+      "id": 4,
+      "name": "Tiger Lilly",
+      "address": [],
+      "chef": "Yanir Green",
+      "chefId": 1,
+      "open": 1,
+      "img": "https://i.ibb.co/Q8GhmZG/tiger-lili.png",
+      "dishes": [],
+      "rating": "/image/rating/5.svg"
+    }
+  ],
+  "dishes": [
+    {
+      "id": 1,
+      "restaurantId": "",
+      "name": "",
+      "rating": "",
+      "time": ["Breakfast", "lunch", "dinner", "all"],
+      "about": "",
+      "price": 1,
+      "allergan": [],
+      "info": ["spicy", "vegetarian", "vegan"],
+      "sides": [],
+      "changes": [],
+      "img": 1
+    }
+  ]
+}

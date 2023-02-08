@@ -1,0 +1,46 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  height: 36px;
+  width: 90%;
+  align-items: flex-end;
+  padding: 14px 5%;
+}
+#right-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: fit-content;
+}
+#left-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-end;
+  width: fit-content;
+}
+#left-nav :nth-child(1) {
+  align-self: flex-end;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 1.35px;
+  text-align: left;
+}
+#left-nav p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 22px;
+  letter-spacing: 1.92px;
+  text-align: left;
+}
+#search {
+  border: 1px black solid;
+  display: flex;
+  flex-direction: row;
+}
+#search input {
+  all: unset;
+}
