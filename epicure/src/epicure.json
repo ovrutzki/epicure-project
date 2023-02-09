@@ -81,7 +81,7 @@
       "chef": "Ran Shmueli",
       "chefId": 1,
       "open": 1,
-      "img": "https://i.ibb.co/WnMSxk0/claro-3x.png",
+      "img": "/image/assets/restaurants/claro.svg",
       "dishes": [],
       "rating": "/image/rating/5.svg"
     },
@@ -92,7 +92,7 @@
       "chef": "Meir Adoni",
       "chefId": 1,
       "open": 1,
-      "img": "https://i.ibb.co/9HnJGWb/big-Lumina.png",
+      "img": "/image/assets/restaurants/Lumina.svg",
       "dishes": [],
       "rating": "/image/rating/5.svg"
     },
@@ -103,7 +103,7 @@
       "chef": "Yanir Green",
       "chefId": 1,
       "open": 1,
-      "img": "https://i.ibb.co/Q8GhmZG/tiger-lili.png",
+      "img": "/image/assets/restaurants/tiger-lily.svg",
       "dishes": [],
       "rating": "/image/rating/5.svg"
     }
@@ -113,21 +113,21 @@
       "id": 1,
       "restaurantId": "",
       "name": "Pad Ki Mao",
-      "rating":"/image/rating/5.svg",
+      "rating": "/image/rating/5.svg",
       "time": ["lunch", "dinner"],
-      "about":"Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
+      "about": "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
       "price": 78,
       "allergan": [],
-      "info": ["/image/spicy-small.svg"],
+      "info": [ "/image/spicy-small.svg"],
       "sides": [],
       "changes": [],
-      "img": "https://i.ibb.co/dtXP3v9/padkimao-Desktop.png"
+      "img": "/image/assets/dishes/Pad Ki Mao.svg"
     },
     {
       "id": 2,
       "restaurantId": "",
       "name": "Garbanzo Frito",
-      "rating":"/image/rating/5.svg",
+      "rating": "/image/rating/5.svg",
       "time": ["Breakfast", "lunch", "dinner", "all"],
       "about": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
       "price": 98,
@@ -135,13 +135,13 @@
       "info": [],
       "sides": [],
       "changes": [],
-      "img": "https://i.ibb.co/Fk1RKVQ/garbanzo-Desktop.png"
+      "img": "/image/assets/dishes/Garbanzo Frito.svg"
     },
     {
       "id": 3,
       "restaurantId": "",
       "name": "Smoked Pizza",
-      "rating":"/image/rating/5.svg",
+      "rating": "/image/rating/5.svg",
       "time": ["lunch", "dinner"],
       "about": "Basil dough, cashew 'butter', demi-glace, bison & radish",
       "price": 65,
@@ -149,7 +149,7 @@
       "info": ["/image/vegan-small.svg"],
       "sides": [],
       "changes": [],
-      "img": "https://i.ibb.co/bdMqNzp/pizza-Desktop.png"
+      "img": "/image/assets/dishes/Smoked Pizza.svg"
     }
   ]
 }

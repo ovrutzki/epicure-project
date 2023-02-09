@@ -9,7 +9,6 @@ body {
   font-family: "Helvetica";
   src: local("Helvetica"),
     url("./fonts/helvetica/HelveticaNeue.ttf") format("truetype");
-  font-weight: bold;
 }
 @font-face {
   font-family: "Helvetica Bold";
@@ -21,7 +20,13 @@ body {
   font-family: "Helvetica medium";
   src: local("Helvetica"),
     url("./fonts/helvetica/HelveticaNeue\ Medium.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Helvetica light";
+  src: local("Helvetica"),
+    url("./fonts/helvetica/HelveticaNeue\ Light.ttf") format("truetype");
+  font-weight: 200;
 }
 
 h1 {

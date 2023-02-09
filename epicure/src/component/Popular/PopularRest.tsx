@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Popular.css";
 import data from "../../epicure.json";
 import SingleRest from "../SingleRest/SingleRest";
+import { ICard } from "../../interFaces/interFaces";
 
 const PopularRest: React.FC = () => {
   const popular: any = data.restaurant.filter((rest) =>
@@ -11,11 +12,11 @@ const PopularRest: React.FC = () => {
 
   return (
     <>
-      <div id="popular">
+      <div className="popular">
         <h1>popular restaurant in epicure:</h1>
-        <div id="three-div">
-          {popular.map((rest: object, index: number) => (
-            <SingleRest restaurant={rest} key={index} />
+        <div className="three-div">
+          {popular.map((rest: ICard, index: number) => (
+            <SingleRest rest={rest} key={index}  />
           ))}
         </div>
         <button>
