@@ -1,15 +1,14 @@
-
-export interface ICard{
-    name?: string;
-    price?: number;
-    info?: string[];
-    img?: string;
-    about?: string;
-    chef?: string;
-    rating?:string;
+export interface ICard {
+  name?: string;
+  price?: number;
+  icons?: string[];
+  img?: string;
+  about?: string;
+  chef?: string;
+  rating?: string;
+  class?: string;
 }
 
-export interface ICardProps{
-    dish?:ICard;
-    rest?:ICard;
+export interface IPopular {
+  kind:string[]
 }

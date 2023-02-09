@@ -8,11 +8,13 @@
 }
 .three-div {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     gap: 25px;
-    width: 75vw;
+    width: 100%;
   }
 .popular h1{
   font-family: "Helvetica light";
+}
+.popular button{
+  align-self: flex-end;
 }

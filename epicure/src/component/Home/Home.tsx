@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../Card/Card";
 import Hero from "../Hero/Hero";
 import Navbar from "../Navbar/Navbar";
 import PopularDish from "../Popular/PopularDish";
@@ -11,7 +12,6 @@ const Home: React.FC=()=>{
         <Navbar />
         <Hero />
         <PopularRest />
-        <PopularDish />
     </>)
 
 }

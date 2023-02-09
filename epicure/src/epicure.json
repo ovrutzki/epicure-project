@@ -5,7 +5,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -13,7 +13,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -21,7 +21,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -29,7 +29,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -37,7 +37,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -45,7 +45,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -53,7 +53,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -61,7 +61,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     },
     {
@@ -69,7 +69,7 @@
       "name": "Yosi Shitrit",
       "restaurant": [],
       "age": 1,
-      "info": "",
+      "icons": "",
       "img": 1
     }
   ],
@@ -118,7 +118,7 @@
       "about": "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
       "price": 78,
       "allergan": [],
-      "info": [ "/image/spicy-small.svg"],
+      "icons": [ "/image/spicy-small.svg", "/image/vegan-small.svg"],
       "sides": [],
       "changes": [],
       "img": "/image/assets/dishes/Pad Ki Mao.svg"
@@ -132,7 +132,7 @@
       "about": "Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
       "price": 98,
       "allergan": [],
-      "info": [],
+      "icons": [],
       "sides": [],
       "changes": [],
       "img": "/image/assets/dishes/Garbanzo Frito.svg"
@@ -146,7 +146,7 @@
       "about": "Basil dough, cashew 'butter', demi-glace, bison & radish",
       "price": 65,
       "allergan": [],
-      "info": ["/image/vegan-small.svg"],
+      "icons": ["/image/vegan-small.svg"],
       "sides": [],
       "changes": [],
       "img": "/image/assets/dishes/Smoked Pizza.svg"
