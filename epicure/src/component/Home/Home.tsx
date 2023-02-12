@@ -1,14 +1,12 @@
 import React from "react";
-import Card from "../Card/Card";
 import Hero from "../Hero/Hero";
 import Navbar from "../Navbar/Navbar";
 import Popular from "../Popular/popular";
-import PopularDish from "../Popular/PopularDish";
-import PopularRest from "../Popular/PopularRest";
 import data from '../../epicure.json'
 import Icons from "./Icons/icons";
 import WeekChef from "./WeekChef/WeekChef";
 import AboutUs from "./AboutUs/AboutUs";
+import Footer from "../Footer/Footer";
 
 const Home: React.FC=()=>{
 
@@ -20,6 +18,7 @@ const Home: React.FC=()=>{
         <Icons />
         <WeekChef />
         <AboutUs />
+        <Footer />
     </>)
 
 }

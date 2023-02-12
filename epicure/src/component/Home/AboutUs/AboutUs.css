@@ -1,8 +1,12 @@
 #main-about {
   display: flex;
   margin-top: 8.5vw;
-  justify-content: center;
-  gap: 15vw;
+  justify-content: start;
+  gap: 23vw;
+  background: rgba(250, 250, 250, 1);
+  width: 100%;
+  padding-left: 8.5vw;
+
 }
 #about {
   display: flex;

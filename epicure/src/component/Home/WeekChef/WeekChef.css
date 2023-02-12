@@ -1,8 +1,9 @@
 #chef-of-the-week {
+  padding-left: 8.5vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  margin-top: 115px;
+  margin-top: 8vw;
   gap: 2.8vw;
 }
 #chef-of-the-week h1 {
@@ -42,7 +43,6 @@
   font-family: "Helvetica";
   font-weight: bold;
   font-size: 1.5vw;
-  /* font-weight: 200; */
   line-height: 2.5vw;
   letter-spacing: 1.25px;
   text-align: justify;
@@ -78,6 +78,8 @@
 
 #single-div img {
   height: 15vw;
+  width: 16vw;
+  object-fit: cover;
 }
 #single-div-name {
   background-color: rgba(249, 244, 234, 1);
