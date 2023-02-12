@@ -8,6 +8,7 @@ import PopularRest from "../Popular/PopularRest";
 import data from '../../epicure.json'
 import Icons from "./Icons/icons";
 import WeekChef from "./WeekChef/WeekChef";
+import AboutUs from "./AboutUs/AboutUs";
 
 const Home: React.FC=()=>{
 
@@ -18,6 +19,7 @@ const Home: React.FC=()=>{
         <Popular kind ={data.dishes} />
         <Icons />
         <WeekChef />
+        <AboutUs />
     </>)
 
 }

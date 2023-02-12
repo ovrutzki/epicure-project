@@ -1,0 +1,31 @@
+#main-about {
+  display: flex;
+  margin-top: 8.5vw;
+  justify-content: center;
+  gap: 15vw;
+}
+#about {
+  display: flex;
+  flex-direction: column;
+}
+#about h1 {
+  font-family: "Helvetica";
+  font-size: 2vw;
+  font-weight: bold;
+  line-height: 2.5vw;
+  letter-spacing: 2.14px;
+  text-align: left;
+}
+#about p {
+  height: 23vw;
+  width: 40vw;
+  font-size: 1.5vw;
+  font-weight: 200;
+  letter-spacing: 2.14px;
+  text-align: left;
+}
+#about section {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
