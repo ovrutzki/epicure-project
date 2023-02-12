@@ -1,3 +1,6 @@
+import data from "../epicure.json";
+
+
 export interface ICard {
   name?: string;
   price?: number;
@@ -10,5 +13,5 @@ export interface ICard {
 }
 
 export interface IPopular {
-  kind:string[]
+  kind:ICard[]
 }

@@ -13,7 +13,7 @@ const  Card: React.FC <ICard> = (props: ICard) => {
           {props.icons ?<section>{ props.icons?.map((source:string, index:number)=> <img className="icon" src={source} key={index} alt="icon" />)}</section> : null}
           
           <p>{props.chef ? props.chef : props.about}</p>
-            {props.rating ? <img className="rating" src={props.rating} alt="rating"/> : null}
+            {props.chef ? <img className="rating" src={props.rating} alt="rating"/> : null}
             {props.price ? <div ><hr /><p>₪{props.price}</p><hr /></div> : null }
         </div>
       </div>

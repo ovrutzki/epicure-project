@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
-import { ICard, ICardProps } from "../../interFaces/interFaces";
+import { ICard } from "../../interFaces/interFaces";
 import "./SingleRest.css";
 
-const SingleRest = (props: ICardProps | undefined) => {
+const SingleRest = (props:any) => {
   const restProps: ICard | undefined = props?.rest;
   return (
     <>

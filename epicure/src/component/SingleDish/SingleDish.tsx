@@ -1,9 +1,9 @@
 import React from "react";
-import { ICard, ICardProps } from "../../interFaces/interFaces";
+import { ICard } from "../../interFaces/interFaces";
 import "./SingleDish.css";
 
 
-const   SingleDish = (props:ICardProps | undefined) => {
+const   SingleDish = (props:any) => {
 const dishProps:ICard | undefined = props?.dish
       return (<>
       <div className="dish">

@@ -1,5 +1,5 @@
 .popular {
-    margin-top: 80px;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -7,14 +7,18 @@
   gap: 40px;
 }
 .three-div {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    width: 100%;
-  }
-.popular h1{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
+.popular h1 {
   font-family: "Helvetica light";
 }
-.popular button{
+.popular button {
   align-self: flex-end;
+  margin-right: 6.8vw;
+}
+.popular button img{
+  height: 3vw;
 }
