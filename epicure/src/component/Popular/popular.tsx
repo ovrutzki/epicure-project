@@ -8,7 +8,6 @@ import { log } from "console";
 
 
 const Popular: React.FC<any>= (props:any) => {
-    console.log(props.kind)
     const kind: ICard[] = props.kind
     const popular=kind.filter((best) =>
     best.rating?.includes("5")
