@@ -5,15 +5,15 @@ import "./Icons.css";
 
 const Icons: React.FC = () => {
       return (<>
-                <div>
+                <div id="icons-main">
                     <h1>THE MEANING OF OUR ICONS:</h1>
-                    <div>
+                    <div id="icons">
                         <section>
                         <img src="/image/SpicyBig.svg" alt="Spicy" />
                         <h2>Spicy</h2>
                         </section>
                         <section>
-                        <img src="VegetarianBig.svg" alt="Vegetarian" />
+                        <img src="/image/VegetarianBig.svg" alt="Vegetarian" />
                         <h2>Vegetarian</h2>
                         </section>
                         <section>

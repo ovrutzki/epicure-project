@@ -1,0 +1,38 @@
+#icons-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 110px;
+  gap: 30px;
+}
+#icons {
+  display: flex;
+  gap: 105px;
+}
+#icons section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+#icons img{
+    height: 5vw;
+}
+
+#icons-main h1 {
+  font-family: "Helvetica";
+  font-size: 3vw;
+  font-weight: bold;
+  line-height: 35px;
+  letter-spacing: 2.14px;
+  text-align: center;
+}
+
+#icons h2 {
+font-size: 2vw;
+font-weight: 200;
+line-height: 30px;
+letter-spacing: 1.97px;
+text-align: center;
+}
