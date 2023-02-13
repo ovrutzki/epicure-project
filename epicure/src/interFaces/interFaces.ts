@@ -1,4 +1,3 @@
-import data from "../epicure.json";
 
 
 export interface ICard {
@@ -14,4 +13,15 @@ export interface ICard {
 
 export interface IPopular {
   kind:ICard[]
+}
+
+export interface IButtons{
+  name:string;
+  value?:string
+  filter:string
+  setFilter:any
+}
+
+export interface IRenderRest{
+  sortFilter:string
 }

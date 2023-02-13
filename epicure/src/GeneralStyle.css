@@ -3,8 +3,7 @@
   margin: 0;
   padding: 0;
 }
-body {
-}
+
 @font-face {
   font-family: "Helvetica";
   src: local("Helvetica"),
@@ -20,7 +19,6 @@ body {
   font-family: "Helvetica medium";
   src: local("Helvetica"),
     url("./fonts/helvetica/HelveticaNeue\ Medium.ttf") format("truetype");
-  font-weight: 200;
 }
 @font-face {
   font-family: "Helvetica light";

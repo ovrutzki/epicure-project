@@ -30,9 +30,9 @@ const Navbar: React.FC = () => {
       <div id="right-nav">
         <div id="search">
           <input type="text" placeholder="Search for restaurant, Chefs" />
-          <button>
+          {/* <button>
             <img src="/image/search.svg" alt="" />
-          </button>
+          </button> */}
         </div>
 
         <button>

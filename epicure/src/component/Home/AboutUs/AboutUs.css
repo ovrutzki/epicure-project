@@ -11,6 +11,7 @@
 #about {
   display: flex;
   flex-direction: column;
+  gap: 1vw;
 }
 #about h1 {
   font-family: "Helvetica";

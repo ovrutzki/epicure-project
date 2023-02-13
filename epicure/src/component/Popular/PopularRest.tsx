@@ -25,17 +25,7 @@ const PopularRest: React.FC = () => {
           All restaurants <img src="/image/vector.svg" alt="" />
         </button>
       </div>
-      {/* <div className="popular">
-        <h1>popular restaurant in epicure:</h1>
-        <div className="three-div">
-          {popular.map((rest: ICard, index: number) => (
-            <SingleRest rest={rest} key={index}  />
-          ))}
-        </div>
-        <button>
-          All restaurants <img src="/image/vector.svg" alt="" />
-        </button>
-      </div> */}
+
     </>
   );
 };

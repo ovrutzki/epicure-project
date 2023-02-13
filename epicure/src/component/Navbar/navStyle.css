@@ -7,6 +7,7 @@ nav {
   width: 90%;
   align-items: flex-end;
   padding: 14px 5%;
+  border-bottom: 0.2px solid rgba(151, 151, 151, 1)
 }
 #right-nav {
   display: flex;
@@ -37,33 +38,69 @@ nav {
   text-align: left;
 }
 #search {
-  border: 1px black solid;
   display: flex;
   flex-direction: row;
+  
+}
+
+#search input {
+  all: unset;
 }
 #search input {
   all: unset;
+  text-align: start;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: white;
+  background-image: url("../../../public/image/icons/search.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 10px 30px 10px 10px;
+  -webkit-transition: width 0.4s ease-out;
+  transition: width 0.4s ease-out;
+  height: 30px;
+  /* direction: ltr; */
+
+  /* input text styling */
+  letter-spacing: 1.29px;
+  font-size: 16px;
+  font-family: "Helvetica";
+  font-weight: 200;
+}
+
+#search input:hover {
+  cursor: pointer;
+}
+
+#search input:focus {
+  width: 400px;
+  border: 1px black solid;
+  cursor: text;
+
 }
 
 .underline {
   font-family: "Helvetica";
   font-size: 1.2vw;
   font-weight: bold;
-  line-height: 1.5vw;
+  line-height: 1.8vw;
   letter-spacing: 1.92px;
   text-align: left;
   border-bottom: 1.8px solid rgba(222, 146, 0, 0.9);
   cursor: pointer;
   text-decoration: none;
   color: black;
+  padding: 6px;
 }
 .not-active {
   all: unset;
   font-family: "Helvetica";
   font-size: 1.2vw;
   font-weight: bold;
-  line-height: 1.5vw;
+  line-height: 1.8vw;
   letter-spacing: 1.92px;
   text-align: left;
   cursor: pointer;
+  padding: 6px;
 }

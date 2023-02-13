@@ -16,7 +16,7 @@ const PopularDish: React.FC = () => {
         <h1>popular restaurant in epicure:</h1>
         <div className="three-div">
           {popular.map((dish:ICard, index: number) => (
-            <SingleDish dish={dish} key={index} />
+           (index<3) && <SingleDish dish={dish} key={index} />
           ))}
         </div>
       </div>

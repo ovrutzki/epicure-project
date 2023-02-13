@@ -1,0 +1,31 @@
+#main-filter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 4.5vw;
+  margin-top: 4.5vw;
+}
+#filter-div {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+}
+#range-div {
+    background-color: (250, 250, 250, 1);
+  display: flex;
+  justify-content: center;
+  gap: 3.5vw;
+}
+#restaurant{
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* justify-content: flex-start; */
+    /* padding-left: 9vw; */
+    gap: 2vw;
+}
+#restaurant .food{
+    padding-top: 2vw;
+}
