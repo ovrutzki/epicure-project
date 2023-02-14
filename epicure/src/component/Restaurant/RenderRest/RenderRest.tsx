@@ -1,44 +1,48 @@
 import React from "react";
-import data from "../../../epicure.json";
 import { ICard, IRenderRest } from "../../../interFaces/interFaces";
 import Card from "../../Card/Card";
+import { useSelector } from "react-redux";
+import { IRootState } from "../../../store/store/store";
 // import "./RenderRest.css";
 
 const RenderRest: any = (props: IRenderRest) => {
+  const restArray = useSelector(
+    (state:IRootState) => state.restaurants.value
+  );
   let filteredRest: Array<{}> = []
   let open:Array<any> = []
 
     let d = new Date();
     switch (props.sortFilter) {
       case "All":
-        filteredRest = data.restaurant;
+        filteredRest = restArray;
         break;
       case 'New':
         let year = d.getFullYear()
-        for (let i = 0; i < data.restaurant.length; i++) {
-            if (year - data.restaurant[i].openYear === 0){
-                filteredRest.push(data.restaurant[i])
+        for (let i = 0; i < restArray.length; i++) {
+            if (year - restArray[i].openYear === 0){
+                filteredRest.push(restArray[i])
              };}
           break;
       case "Open Now":
         let hour = d.getHours();
         let day = d.getDay();
-        for (let i = 0; i < data.restaurant.length; i++) {
+        for (let i = 0; i < restArray.length; i++) {
           if (
-            data.restaurant[i].openHours[0] < hour &&
-            hour < data.restaurant[i].openHours[1] &&
-            data.restaurant[i].openDays.includes(day)
-          ){open.push(data.restaurant[i]);}
+            restArray[i].openHours[0] < hour &&
+            hour < restArray[i].openHours[1] &&
+            restArray[i].openDays.includes(day)
+          ){open.push(restArray[i]);}
         };
         filteredRest = open;
         break;
       case "Most Popular":
-        let mostPopular1 = data.restaurant.filter((rest) => rest.rating.includes("5"))
-        let mostPopular2 = data.restaurant.filter((rest) => rest.rating.includes("4"))
+        let mostPopular1 = restArray.filter((rest:any) => rest.rating.includes("5"))
+        let mostPopular2 = restArray.filter((rest:any) => rest.rating.includes("4"))
         filteredRest = [...mostPopular1 , ...mostPopular2]
         break;
       default:
-        filteredRest = data.restaurant;
+        filteredRest = restArray;
         break;
     }
   return (
@@ -65,8 +69,8 @@ const RenderRest: any = (props: IRenderRest) => {
 export default RenderRest;
 
 // case 'Most Popular':
-//     filteredRest === data.restaurant
+//     filteredRest === restArray
 //     break;
 // case 'Map View':
-//     filteredRest === data.restaurant
+//     filteredRest === restArray
 //     break;

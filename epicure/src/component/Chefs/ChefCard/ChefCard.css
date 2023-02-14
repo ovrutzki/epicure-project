@@ -28,8 +28,9 @@
   bottom: -0.1vw;
   height: 5.5vw;
   font-family: "Helvetica light";
-  font-size: 3vw;
+  font-size: 2.8vw;
   font-weight: bold;
-  letter-spacing: 2.67px;
+  letter-spacing: 2.5px;
+  line-height: 2.5vw;
   text-align: center;
 }

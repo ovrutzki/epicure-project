@@ -1,13 +1,19 @@
 import React from "react";
 import "./WeekChef.css";
-import data from "../../../epicure.json"
-
+import {useSelector} from "react-redux"
+import { IRootState } from "../../../store/store/store";
 
 const WeekChef: React.FC = () => {
-    const popularChef = data.chefs.find((best)=>best.name.includes("Yosi Shitrit"))
+    const chefsArray = useSelector(
+        (state:IRootState) => state.chefs.value
+      );
+      const restArray = useSelector(
+        (state:IRootState) => state.restaurants.value
+      );
+    const popularChef = chefsArray.find((best)=>best.name.includes("Yosi Shitrit"))
     console.log(popularChef)
     const firstName:any = popularChef?.name.split(" ")
-    const chefRest = data.restaurant;
+    const chefRest = restArray;
     chefRest.find(x => x.chefId === 1);
     console.log(chefRest)
       return (<>
