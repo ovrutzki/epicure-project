@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Popular.css";
 import { ICard } from "../../interFaces/interFaces";
 import Card from "../Card/Card";
+import { useNavigate } from "react-router-dom";
 
 const Popular: React.FC<any> = (props: any) => {
+  const navigate = useNavigate()
   const kind: ICard[] = props.kind;
   const popular = kind.filter((best) => best.rating?.includes("5"));
   console.log(popular);
-  //     const popularDish: any = data.dishes.filter((dish) =>
-  //     dish.rating.includes("5")
-  //   );
 
   return (
     <>
@@ -35,7 +34,7 @@ const Popular: React.FC<any> = (props: any) => {
           ))}
         </div>
         {popular[0].chef ? (
-          <button>
+          <button onClick={() => navigate('/restaurant')}>
             <img src="/image/all-restaurant.svg" alt="arrow" />
           </button>
         ) : null}
@@ -45,7 +44,3 @@ const Popular: React.FC<any> = (props: any) => {
 };
 
 export default Popular;
-
-// <Card class="rest" img={data.restaurant[0].img} name={data.restaurant[0].name} chef={data.restaurant[0].chef} rating={data.restaurant[0].rating} />
-//           <Card class="dish" img={data.dishes[0].img} name={data.dishes[0].name} icons={data.dishes[0].icons} about={data.dishes[0].about} price={data.dishes[0].price}/>
-//           <Card class="dish" img={data.dishes[0].img} name={data.dishes[0].name} icons={data.dishes[0].icons} about={"iufd sl fds"} price={data.dishes[0].price}/>

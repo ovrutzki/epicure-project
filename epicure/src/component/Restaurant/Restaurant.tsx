@@ -9,7 +9,6 @@ const Restaurant: React.FC=()=>{
     return(<>
         <Navbar />
         <Filter toRender='rest'/>
-        {/* <RenderRest /> */}
         <Footer />
     </>)
 

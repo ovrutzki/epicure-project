@@ -1,5 +1,3 @@
-
-
 export interface ICard {
   name?: string;
   price?: number;
@@ -10,18 +8,22 @@ export interface ICard {
   rating?: string;
   class?: string;
 }
+export interface IChefCard {
+  img?: string;
+  name?: string;
+}
 
 export interface IPopular {
-  kind:ICard[]
+  kind: ICard[];
 }
 
-export interface IButtons{
-  name:string;
-  value?:string
-  filter:string
-  setFilter:any
+export interface IButtons {
+  name: string;
+  value?: string;
+  filter: string;
+  setFilter: any;
 }
 
-export interface IRenderRest{
-  sortFilter:string
+export interface IRenderRest {
+  sortFilter: string;
 }
