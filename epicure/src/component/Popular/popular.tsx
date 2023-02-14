@@ -20,8 +20,8 @@ const Popular: React.FC<any> = (props: any) => {
         )}
         <div className="three-div">
           {popular.map((card: ICard, index: number) => (
-            <Card
-              class={card.price ? "dish" : "rest"}
+           (index<3) && <Card
+              class={`card ${card.price ? "dish" : "rest"}`}
               key={index}
               img={card.img}
               name={card.name}

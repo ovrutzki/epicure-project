@@ -10,7 +10,7 @@ const  Card: React.FC <ICard> = (props: ICard) => {
   };
   return (
     <>
-      <div className={`card ${props.class}`} onClick={() => onCardClick(props.name)}>
+      <div className={props.class} onClick={() => onCardClick(props.name)}>
         {props.img ? <img className="img-rest food" src={props.img}/> : <img className="img-dish food" src={props.img}/>}
         <div className="card-downer-div">
           <h1>{props.name} </h1>

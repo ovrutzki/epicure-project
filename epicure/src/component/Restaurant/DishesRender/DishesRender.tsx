@@ -45,13 +45,14 @@ const DishesRender: React.FC<IRestName> = (props:IRestName) => {
         <FilterButtons name="Dinner" filter={filter} setFilter={setFilter} />
         </div>
       </div>
-      <div>
+      <div className="dish-div">
          {specificDishes.map((dish:ICard, index:number) =>(
             <Card name={dish.name}
                   img={dish.img}
                   key={index}
                   about={dish.about}
-                  price={dish.price} />
+                  price={dish.price}
+                  class="card" />
          ))}
       </div>
 

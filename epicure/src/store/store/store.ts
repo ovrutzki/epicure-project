@@ -27,7 +27,7 @@ export interface IChefs{
   about:string;
 }
 export interface IDishes{
-  id:number;
+  id?:number;
   name:string;
   restaurantId:number;
   rating:string;

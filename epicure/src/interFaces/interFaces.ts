@@ -7,7 +7,8 @@ export interface ICard{
   chef?: string;
   rating?: string | undefined;
   class?: string;
-  onClick?:(restName:string)=>void;
+  // id?:string;
+  onClick?:((restName:string)=>void) | null;
 }
 export interface IChefCard {
   img?: string;
