@@ -1,12 +1,13 @@
-export interface ICard {
-  name?: string;
+export interface ICard{
+  name: string;
   price?: number;
   icons?: string[];
   img?: string;
   about?: string;
   chef?: string;
-  rating?: string;
+  rating?: string | undefined;
   class?: string;
+  onClick?:(restName:string)=>void;
 }
 export interface IChefCard {
   img?: string;

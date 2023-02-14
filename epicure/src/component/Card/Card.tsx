@@ -1,11 +1,16 @@
 import React, { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { ICard } from "../../interFaces/interFaces";
 import "./Card.css";
 
 const  Card: React.FC <ICard> = (props: ICard) => {
+  const navigate = useNavigate();
+  const onCardClick = (restName: string) => {
+    navigate(restName);
+  };
   return (
     <>
-      <div className={`card ${props.class}`}>
+      <div className={`card ${props.class}`} onClick={() => onCardClick(props.name)}>
         {props.img ? <img className="img-rest food" src={props.img}/> : <img className="img-dish food" src={props.img}/>}
         <div className="card-downer-div">
           <h1>{props.name} </h1>

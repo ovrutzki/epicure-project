@@ -41,10 +41,7 @@ export const SortButtons = styled.select`
 `;
 
 const FilterButtons: React.FC<IButtons> = (props: IButtons) => {
-    const clicked = (e: any | null) => {
-      const btnName = e.target.id;
-      return btnName;
-    };
+
     return (
       <>
         <SimpleButtons
