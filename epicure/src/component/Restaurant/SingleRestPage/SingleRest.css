@@ -37,7 +37,7 @@
   line-height: 2.5vw;
   letter-spacing: 1.97px;
 }
-.rating {
+.single-rest .rating {
   all: unset;
   display: none;
 }

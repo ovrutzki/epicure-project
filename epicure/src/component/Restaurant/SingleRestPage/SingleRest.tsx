@@ -23,7 +23,6 @@ const SingleRest: React.FC<any> = (props) => {
           img={restArray[restIndex].img}
           name={restArray[restIndex].name}
           chef={restArray[restIndex].chef}
-          rating={undefined}
           //   onClick= {}
         />
         {restArray[restIndex].openDays.findIndex((e) => e === d.getDay()) !==

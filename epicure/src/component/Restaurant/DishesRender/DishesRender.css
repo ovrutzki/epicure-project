@@ -25,6 +25,9 @@
   gap: 8px;
   background-color: #faf2e3;
 }
+#filter-div{
+    margin: 3.5vw;
+}
 button:focus{
     text-decoration: underline 2px rgba(222, 146, 0, 0.9);
 
