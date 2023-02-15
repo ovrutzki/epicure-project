@@ -1,14 +1,12 @@
 import React from "react";
-import FilterButtons from "../Buttons/Buttons";
-import { RangeButtons } from "../Buttons/Buttons";
+import FilterButtons, { PriceButton } from "../Buttons/Buttons";
 import "./Filter.css";
 import { useState } from "react";
 import RenderRest from "../Restaurant/RenderRest/RenderRest";
 import ChefCard from "../Chefs/ChefCard/ChefCard";
 
 interface IRender {
-  toRender:string;
-
+  toRender: string;
 }
 const Filter: React.FC<any> = (props: any) => {
   const [filter, setFilter] = useState("All");
@@ -37,20 +35,25 @@ const Filter: React.FC<any> = (props: any) => {
                 setFilter={setFilter}
               />
             </>
-          ) : <><FilterButtons name="All" filter={filter} setFilter={setFilter} />
-          <FilterButtons name="New" filter={filter} setFilter={setFilter} />
-          <FilterButtons
-            name="Most Viewed"
-            filter={filter}
-            setFilter={setFilter}
-          /></>}
+          ) : (
+            <>
+              <FilterButtons name="All" filter={filter} setFilter={setFilter} />
+              <FilterButtons name="New" filter={filter} setFilter={setFilter} />
+              <FilterButtons
+                name="Most Viewed"
+                filter={filter}
+                setFilter={setFilter}
+              />
+            </>
+          )}
         </div>
-        {props.toRender ? <div id="range-div">
-          <RangeButtons name="Price Range" />
-          <RangeButtons name="Distance" />
-          <RangeButtons name="Rating" />
-        </div>: null}
-        {props.toRender? <RenderRest sortFilter={filter} /> : <ChefCard />}
+        {props.toRender ? (
+          <div id="range-div">
+            <PriceButton name="Price Range" min={12} max={357} />
+
+          </div>
+        ) : null}
+        {props.toRender ? <RenderRest sortFilter={filter} /> : <ChefCard />}
       </div>
     </>
   );

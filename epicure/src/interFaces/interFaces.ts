@@ -1,14 +1,12 @@
-export interface ICard{
+export interface ICard {
   name: string;
   price?: number;
   icons?: string[];
   img?: string;
   about?: string;
   chef?: string;
-  rating?: string | undefined;
+  rating?: string;
   class?: string;
-  // id?:string;
-  onClick?:((restName:string)=>void) | null;
 }
 export interface IChefCard {
   img?: string;
@@ -22,8 +20,10 @@ export interface IPopular {
 export interface IButtons {
   name: string;
   value?: string;
-  filter: string;
-  setFilter: any;
+  filter?: string;
+  setFilter?: any;
+  min?:number;
+  max?:number;
 }
 
 export interface IRenderRest {
