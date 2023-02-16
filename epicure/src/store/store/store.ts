@@ -41,6 +41,7 @@ export interface IDishes{
   img:string;
 }
 export interface IRestState {
+  default: any;
   value: IRestaurants[]
 }
 export interface IChefState {

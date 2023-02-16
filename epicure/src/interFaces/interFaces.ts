@@ -24,6 +24,7 @@ export interface IButtons {
   setFilter?: any;
   min?:number;
   max?:number;
+  onClick?:any;
 }
 
 export interface IRenderRest {

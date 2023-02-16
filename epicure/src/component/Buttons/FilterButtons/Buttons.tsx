@@ -2,6 +2,7 @@ import React from "react";
 import { IButtons } from "../../../interFaces/interFaces";
 import "./Buttons.css";
 import styled from "styled-components";
+import { mainFilter } from "../../../store/slicer/restaurantSlicer";
 
 export const SimpleButtons = styled.button`
   font-family: "Helvetica light";
@@ -21,12 +22,13 @@ export const SimpleButtons = styled.button`
 
 
 const FilterButtons: React.FC<IButtons> = (props: IButtons) => {
+
   return (
     <>
       <SimpleButtons
         id={props.name}
         value={props.name}
-        onClick={() => props.setFilter(props.name)}
+        onClick={props.onClick}
       >
         {props.name}
       </SimpleButtons>
