@@ -20,7 +20,6 @@ const Filter: React.FC<any> = (props: any) => {
 
   useEffect(() => {
     dispatch(mainFilter(filter));
-    console.log(filter);
 
   }, [filter]);
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IButtons } from "../../../interFaces/interFaces";
-// import { SortButtons } from "../FilterButtons/Buttons";
 import "./RatingButton.css";
 
 

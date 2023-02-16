@@ -11,11 +11,9 @@ const WeekChef: React.FC = () => {
         (state:IRootState) => state.restaurants.value
       );
     const popularChef = chefsArray.find((best)=>best.name.includes("Yosi Shitrit"))
-    console.log(popularChef)
     const firstName:any = popularChef?.name.split(" ")
     const chefRest = restArray;
     chefRest.find(x => x.chefId === 1);
-    console.log(chefRest)
       return (<>
       <div id="chef-of-the-week">
         <h1>Chef of the week:</h1>
