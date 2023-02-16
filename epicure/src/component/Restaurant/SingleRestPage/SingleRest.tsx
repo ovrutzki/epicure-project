@@ -9,7 +9,6 @@ import Navbar from "../../Navbar/Navbar";
 
 const SingleRest: React.FC<any> = (props) => {
   let { restName } = useParams();
-  console.log(restName);
   const restArray = useSelector((state: IRootState) => state.restaurants.value);
   const dishArray = useSelector((state: IRootState) => state.dishes.value);
   let restIndex = restArray.findIndex((e: any) => e.name === restName);
@@ -22,8 +21,7 @@ const SingleRest: React.FC<any> = (props) => {
           class="single-rest"
           img={restArray[restIndex].img}
           name={restArray[restIndex].name}
-          chef={restArray[restIndex].chef}
-          //   onClick= {}
+          chef={restArray[restIndex].chef} id={restArray[restIndex].id}          //   onClick= {}
         />
         {restArray[restIndex].openDays.findIndex((e) => e === d.getDay()) !==
           -1 &&

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import {MouseEvent} from "react"
 import FilterButtons from "../Buttons/FilterButtons/Buttons";
 import "./Filter.css";
 import { useState } from "react";
@@ -12,6 +13,7 @@ interface IRender {
   toRender: string;
 }
 const Filter: React.FC<any> = (props: any) => {
+  const btnNames:string[] = ["All", "New", "Most Popular", "Open Now", "Map View", "Most View"]
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("All");
   dispatch(mainFilter(filter));
@@ -22,60 +24,30 @@ const Filter: React.FC<any> = (props: any) => {
 
   }, [filter]);
 
+  const filterEvent= (e:Event):void => {
+    const target = e.target as HTMLInputElement;
+    setFilter(target.value);
+  }
   return (
     <>
       <div id="main-filter">
         <div id="filter-div">
-          {props.toRender ? (
-            <>
-              <FilterButtons
-                name="All"
-                onClick={() => {
-                  setFilter("All");
-                }}
-              />
-              <FilterButtons
-                name="New"
-                onClick={() => {
-                  setFilter("New");
-                }}
-              />
-              <FilterButtons
-                name="Most Popular"
-                filter={filter}
-                onClick={() => {
-                  setFilter("Most Popular");
-                }}
-              />
-              <FilterButtons
-                name="Open Now"
-                filter={filter}
-                onClick={() => {
-                  setFilter("Open Now");
-                }}
-              />
-              <FilterButtons
-                name="Map View"
-                filter={filter}
-                onClick={() => {
-                  setFilter("Map View");
-                }}
-              />
-            </>
-          ) : (
-            <>
-              <FilterButtons name="All" setFilter={setFilter} />
-              <FilterButtons name="New" setFilter={setFilter} />
-              <FilterButtons name="Most Viewed" setFilter={setFilter} />
-            </>
-          )}
+          {btnNames.map((btn, index:number)=>(
+            props.toRender ?
+           (index<5) && <FilterButtons
+              name={btn}
+              onClick={filterEvent}
+            /> : (index != 2 && index != 3 && index != 4) &&  <FilterButtons
+            name={btn}
+            onClick={filterEvent}
+          />
+          ))}
         </div>
         {props.toRender && (
           <div id="range-div">
             <FilterContainer name={""} />
           </div>
         )}
-        {/* {props.toRender ? <RenderRest sortFilter={filter} /> : <ChefCard />} */}
       </div>
     </>
   );
