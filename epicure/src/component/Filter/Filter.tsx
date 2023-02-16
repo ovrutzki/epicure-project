@@ -1,9 +1,10 @@
 import React from "react";
-import FilterButtons, { PriceButton } from "../Buttons/Buttons";
+import FilterButtons from "../Buttons/FilterButtons/Buttons";
 import "./Filter.css";
 import { useState } from "react";
 import RenderRest from "../Restaurant/RenderRest/RenderRest";
 import ChefCard from "../Chefs/ChefCard/ChefCard";
+import FilterContainer from "../Buttons/FilterContainer/FilterContainer";
 
 interface IRender {
   toRender: string;
@@ -47,12 +48,11 @@ const Filter: React.FC<any> = (props: any) => {
             </>
           )}
         </div>
-        {props.toRender ? (
+        {props.toRender && (
           <div id="range-div">
-            <PriceButton name="Price Range" min={12} max={357} />
-
+            <FilterContainer name={""} />
           </div>
-        ) : null}
+        )}
         {props.toRender ? <RenderRest sortFilter={filter} /> : <ChefCard />}
       </div>
     </>

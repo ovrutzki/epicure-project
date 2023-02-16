@@ -7,14 +7,16 @@ import Icons from "./Icons/icons";
 import WeekChef from "./WeekChef/WeekChef";
 import AboutUs from "./AboutUs/AboutUs";
 import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC=()=>{
+    const navigate = useNavigate();
 
     return(<>
         <Navbar />
         <Hero />
-        <Popular  kind ={data.restaurant}/>
-        <Popular kind ={data.dishes} />
+        <Popular  kind ={data.restaurant} header="popular restaurant in epicure:"/>
+        <Popular kind ={data.dishes} header="SIGNATURE DISH OF:" />
         <Icons />
         <WeekChef />
         <AboutUs />

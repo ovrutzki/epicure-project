@@ -6,7 +6,11 @@ export const restaurantSlice = createSlice({
   initialState: {
     value: data.restaurant,
   },
-  reducers: {},
+  reducers: {
+    
+
+    
+  },
 });
 
 export default restaurantSlice.reducer;

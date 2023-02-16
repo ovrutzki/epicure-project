@@ -1,6 +1,6 @@
 import React from "react";
 import "./DishesRender.css";
-import FilterButtons from "../../Buttons/Buttons";
+import FilterButtons from "../../Buttons/FilterButtons/Buttons";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../store/store/store";
@@ -44,7 +44,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
   return (
     <>
       <div id="main-dishes">
-        <div id="filter-div">
+        <div id="filter-dish">
           <FilterButtons
             name="Breakfast"
             filter={filter}
