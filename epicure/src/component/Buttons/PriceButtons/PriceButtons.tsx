@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { IButtons } from "../../../interFaces/interFaces";
+import {  } from "../../../store/slicer/restaurantSlicer";
 import { SortButtons } from "../FilterButtons/Buttons";
 import "./PriceButton.css"
 
 export const PriceButton:React.FC<IButtons> = (props: IButtons) => {
+  const dispatch = useDispatch()
     const [minValue, setMinValue] = useState(10);
     const onChangeMinValue = (e:any):void =>{
       setMinValue(e.target.value)
@@ -11,6 +14,7 @@ export const PriceButton:React.FC<IButtons> = (props: IButtons) => {
     const [maxValue, setMaxValue] = useState(357);
     const onChangeMaxValue = (e:any):void =>{
       setMaxValue(e.target.value)
+      
     }
   
   

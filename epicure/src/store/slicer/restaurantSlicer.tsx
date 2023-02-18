@@ -52,9 +52,23 @@ export const restaurantSlice = createSlice({
       state.value = state.default;
       break;
       }
+    },
+    ratingFilter: (state, action) =>{
+
+
+
     }
+    // priceFilter: (state,action):void =>{
+    //   for (let i = 0; i < state.default.length; i++) {
+    //     let sum = 0;
+    //     let rest = data.dishes.filter((dish) => dish.restaurantId === i + 1 )
+    //     let price = rest.reduce((accumulator, cornett) => accumulator + cornett.price , sum)
+    //     let avrg = price / rest.length
+    //     if()
+    //   }
+    //  }
   },
 });
 
-export const {mainFilter} = restaurantSlice.actions
+export const {mainFilter , ratingFilter} = restaurantSlice.actions
 export default restaurantSlice.reducer;

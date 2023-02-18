@@ -43,10 +43,10 @@ nav {
   
 }
 
-#search input {
+#search input[type="text"] {
   all: unset;
 }
-#search input {
+#search input[type="text"] {
   all: unset;
   text-align: start;
   width: 40px;

@@ -40,8 +40,8 @@
   padding: 6px 12px 6px 12px;
   gap: 10px;
 }
-input {
-  all: unset;
+input[type="text"] {
+  /* all: unset; */
   font-family: "Helvetica bold";
   font-size: 25px;
   /* font-weight: bolder; */
@@ -49,7 +49,7 @@ input {
   width: 80%;
   color: rgb(0, 0, 0);
 }
-input::placeholder {
+input[type="text"]::placeholder {
   font-family: "Helvetica";
   font-size: 25px;
 }
