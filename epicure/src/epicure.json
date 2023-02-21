@@ -413,8 +413,8 @@
       "price": 65,
       "allergan": [],
       "icons": ["/image/vegan-small.svg"],
-      "sides": [],
-      "changes": [],
+      "sides": ["rise", "white bread"],
+      "changes": ["without peanuts", "less spicy"],
       "img": "/image/assets/dishes/ta ma la ko.svg"
     },
     {

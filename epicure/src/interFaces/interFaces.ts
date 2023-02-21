@@ -1,6 +1,6 @@
 export interface ICard {
   id?: number;
-  name: string;
+  name: string | undefined;
   price?: number;
   icons?: string[];
   img?: string;
@@ -9,6 +9,7 @@ export interface ICard {
   rating?: string;
   class?: string;
   navigate?:string;
+  onClick?:any;
 }
 export interface IChefCard {
   img?: string;
@@ -31,4 +32,10 @@ export interface IButtons {
 
 export interface IRenderRest {
   sortFilter: string;
+}
+
+export interface IModal{
+  id?:number
+  open?:boolean
+  onClose?:any
 }

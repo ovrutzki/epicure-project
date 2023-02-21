@@ -10,14 +10,14 @@ const  Card: React.FC <ICard> = (props: ICard) => {
   };
   return (
     <>
-      <div className={props.class} onClick={() => onCardClick(props.navigate)}>
+      <div className={props.class} onClick={(e) => props.navigate ? onCardClick(props.name) : props.onClick(e)}>
         {props.img ? <img className="img-rest food" src={props.img}/> : <img className="img-dish food" src={props.img}/>}
         <div className="card-downer-div">
           <h1>{props.name} </h1>
           
           {props.icons ?<section>{ props.icons?.map((source:string, index:number)=> <img className="icon" src={source} key={index} alt="icon" />)}</section> : null}
           
-          <p>{props.chef ? props.chef : props.about}</p>
+          <p id="about-dish">{props.chef ? props.chef : props.about}</p>
             {props.chef ? <img className="rating" src={props.rating} alt="rating"/> : null}
             {props.price ? <div ><hr /><p>₪{props.price}</p><hr /></div> : null }
         </div>
