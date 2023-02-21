@@ -1,0 +1,84 @@
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 27%;
+}
+.card:hover{
+  cursor: pointer;
+}
+.rest {
+    height: fit-content;
+}
+.card-downer-div {
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  background-color: #faf2e3;
+}
+.rest .card-downer-div {
+  height: 12vw;
+}
+.dish .card-downer-div {
+  height: 24vw;
+  position: relative;
+}
+.food {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.dish .food {
+  height: 21vw;
+}
+.rest .food {
+  height: 16vw;
+}
+.card-downer-div section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+.rating {
+  max-width: 195px;
+  width: 20vw;
+}
+.icon {
+  scale: 0.95;
+}
+
+.card-downer-div div {
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.card-downer-div hr {
+  all: unset;
+  border: 1px rgba(151, 151, 151, 1) solid;
+  width: 25%;
+}
+
+.card-downer-div h1 {
+  font-family: "Helvetica";
+  font-weight: 600;
+  font-size: 3vw;
+  line-height: 3vw;
+  letter-spacing: 2.67px;
+  text-align: center;
+}
+.card-downer-div p {
+  font-size: 1.5vw;
+  font-weight: 200;
+  line-height: 2.8vw;
+  letter-spacing: 1.97px;
+  text-align: center;
+}

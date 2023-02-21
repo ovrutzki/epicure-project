@@ -3,19 +3,28 @@
   margin: 0;
   padding: 0;
 }
-body {
-}
+
 @font-face {
   font-family: "Helvetica";
   src: local("Helvetica"),
     url("./fonts/helvetica/HelveticaNeue.ttf") format("truetype");
-  font-weight: bold;
 }
 @font-face {
   font-family: "Helvetica Bold";
   src: local("Helvetica"),
     url("./fonts/helvetica/Helvetica\ Neu\ Bold.ttf") format("truetype");
   font-weight: bold;
+}
+@font-face {
+  font-family: "Helvetica medium";
+  src: local("Helvetica"),
+    url("./fonts/helvetica/HelveticaNeue\ Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Helvetica light";
+  src: local("Helvetica"),
+    url("./fonts/helvetica/HelveticaNeue\ Light.ttf") format("truetype");
+  font-weight: 200;
 }
 
 h1 {
