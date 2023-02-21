@@ -17,8 +17,8 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
   const restArray = useSelector((state: IRootState) => state.restaurants.value);
   const [filter, setFilter] = useState("");
   let AllRestDishes = dishArray.filter(
-    (e) =>
-      e.restaurantId === restArray.find((e) => e.name === props.restName)?.id
+    (dish) =>
+      dish.restaurantId === restArray.find((rest) => rest.name === props.restName)?.id
   );
   let specificDishes: ICard[] = [];
   switch (filter) {
@@ -63,6 +63,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
             about={dish.about}
             price={dish.price}
             class="card"
+            navigate={""}
           />
         ))}
       </div>

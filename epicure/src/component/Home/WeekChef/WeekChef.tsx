@@ -11,7 +11,7 @@ const WeekChef: React.FC = () => {
         (state:IRootState) => state.restaurants.value
       );
     const popularChef = chefsArray.find((best)=>best.name.includes("Yosi Shitrit"))
-    const firstName:any = popularChef?.name.split(" ")
+    const firstName:string[] | undefined = popularChef?.name.split(" ")
     const chefRest = restArray;
     chefRest.find(x => x.chefId === 1);
       return (<>
@@ -25,11 +25,11 @@ const WeekChef: React.FC = () => {
             <p id="chef-about">{popularChef?.about}</p>
         </div>
         <div id="rest-div">
-            <h1>{firstName[0]}’s Restaurants</h1>
+            {firstName ? <h1>{firstName[0]}’s Restaurants </h1> : "" }
             <section>
                 {chefRest.map((rest, index)=>(
                     (index<3) && (
-                        <div id="single-div">
+                        <div id="single-div" key={index}>
                             <img src={rest.img} key={index} alt={rest.img} />
                             <div id="single-div-name"><h1>{rest.name}</h1></div>
                         </div>

@@ -2,12 +2,24 @@ import React from "react";
 import "./DistanceButton.css";
 import { useState } from "react";
 import { IButtons } from "../../../interFaces/interFaces";
-import { SortButtons } from "../FilterButtons/Buttons";
+import styled from "styled-components";
+
+export const SortButtons = styled.input`
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  width: 17vw;
+  background-color: #c6c6c6;
+  pointer-events: none;
+  &::-webkit-slider-thumb {
+  }
+`;
 
 const DistanceButton: React.FC<IButtons> = (props:IButtons) => {
   const [distance, setDistance] = useState(2);
-  const onChangeDisValue = (e: any): void => {
-    setDistance(e.target.value);
+  const onChangeDisValue = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const targetElement: number  = Number(e.target.value)
+    setDistance(targetElement);
   };
 
   return (

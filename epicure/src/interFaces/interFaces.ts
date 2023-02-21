@@ -8,6 +8,7 @@ export interface ICard {
   chef?: string;
   rating?: string;
   class?: string;
+  navigate?:string;
 }
 export interface IChefCard {
   img?: string;

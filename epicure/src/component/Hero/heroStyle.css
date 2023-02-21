@@ -40,8 +40,8 @@
   padding: 6px 12px 6px 12px;
   gap: 10px;
 }
-input[type="text"] {
-  /* all: unset; */
+#search-div input[type="text"] {
+  all: unset;
   font-family: "Helvetica bold";
   font-size: 25px;
   /* font-weight: bolder; */

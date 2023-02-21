@@ -13,20 +13,22 @@ const SingleRest: React.FC<any> = (props) => {
   const dishArray = useSelector((state: IRootState) => state.dishes.value);
   let restIndex = restArray.findIndex((e: any) => e.name === restName);
   let d = new Date();
+  const specificRest = restArray[restIndex]
   return (
     <>
       <Navbar />
       <div id="main">
         <Card
           class="single-rest"
-          img={restArray[restIndex].img}
-          name={restArray[restIndex].name}
-          chef={restArray[restIndex].chef} id={restArray[restIndex].id}          //   onClick= {}
+          img={specificRest.img}
+          name={specificRest.name}
+          chef={specificRest.chef} id={specificRest.id}
+          navigate = {""}
         />
-        {restArray[restIndex].openDays.findIndex((e) => e === d.getDay()) !==
+        {specificRest.openDays.findIndex((e) => e === d.getDay()) !==
           -1 &&
-        restArray[restIndex].openHours[0] < d.getHours() &&
-        restArray[restIndex].openHours[1] > d.getHours() ? (
+        specificRest.openHours[0] < d.getHours() &&
+        specificRest.openHours[1] > d.getHours() ? (
           <div>
             <img className="open-now" src="/image/icons/open now.svg" />
           </div>

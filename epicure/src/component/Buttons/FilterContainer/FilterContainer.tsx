@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { IButtons } from "../../../interFaces/interFaces";
 import DistanceButton from "../DistanceButton/DistanceButtons";
 import { PriceButton } from "../PriceButtons/PriceButtons";
 import RatingButton from "../RatingButton/Ratingbutton";
 import "./FilterContainer.css"
 const FilterContainer: React.FC<IButtons> = (props):any =>{
- const [addPrice, setAddPrice]:any = useState(false)
+ const [addPrice, setAddPrice]:[boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
  const [addDistance, setAddDistance]:any = useState(false)
  const [addRating, setAddRating]:any = useState(false)
-    const openRang = (x:any,y:any,z:any):any=>{
+    const openRang = (x:Dispatch<SetStateAction<boolean>>,y:Dispatch<SetStateAction<boolean>>,z:Dispatch<SetStateAction<boolean>>):void=>{
       x(true)
       y(false)
       z(false)

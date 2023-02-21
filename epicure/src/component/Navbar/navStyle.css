@@ -60,9 +60,6 @@ nav {
   -webkit-transition: width 0.4s ease-out;
   transition: width 0.4s ease-out;
   height: 30px;
-  /* direction: ltr; */
-
-  /* input text styling */
   letter-spacing: 1.29px;
   font-size: 16px;
   font-family: "Helvetica";

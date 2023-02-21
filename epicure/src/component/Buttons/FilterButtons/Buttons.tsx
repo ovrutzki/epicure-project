@@ -39,13 +39,3 @@ const FilterButtons: React.FC<IButtons> = (props: IButtons) => {
 export default FilterButtons;
 
 
-export const SortButtons = styled.input`
-  -webkit-appearance: none;
-  appearance: none;
-  height: 2px;
-  width: 17vw;
-  background-color: #c6c6c6;
-  pointer-events: none;
-  &::-webkit-slider-thumb {
-  }
-`;
