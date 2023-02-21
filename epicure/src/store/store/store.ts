@@ -41,14 +41,16 @@ export interface IDishes{
   img:string;
 }
 export interface IRestState {
-  default: any;
+  default: IRestaurants;
   value: IRestaurants[]
 }
 export interface IChefState {
   value: IChefs[]
 }
 export interface IDishState {
-  value: IDishes[]
+  default:  IDishes[];
+  value: IDishes[];
+  specificDishes:IDishes[] | undefined
 }
 
 export interface IRootState{

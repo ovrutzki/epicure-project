@@ -11,7 +11,6 @@ const RenderRest: any = (props: IRenderRest) => {
       <div id="restaurant">
         {filteredRest.map((card: ICard, index: number) => (
             <Card
-
               class={card.price ? "dish" : "rest"}
               key={index}
               img={card.img}

@@ -338,7 +338,7 @@
       "restaurantId": 1,
       "name": "Pad Ki Mao",
       "rating": "/image/rating/5.svg",
-      "time": ["lunch", "dinner"],
+      "time": ["breakfast", "lunch", "dinner"],
       "about": "Shrimps, Glass Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic Chili Brown Coconut",
       "price": 78,
       "allergan": [],
