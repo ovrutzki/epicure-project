@@ -1,12 +1,12 @@
-#sing-container {
-  height: 75vh;
+#sign-container {
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#signin-main {
+#sign-main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,61 +14,59 @@
   box-shadow: 0 10px 10px gray;
   padding: 2vw;
 }
-#title {
+#sign-title {
   display: flex;
   flex-direction: column;
   gap: 2vw;
 }
-#title h1 {
+#sign-title h1 {
   text-align: center;
   font-family: "Helvetica light";
   font-size: 2vw;
   line-height: 2vw;
   letter-spacing: 2.6700000762939453px;
 }
-#title h2 {
+#sign-title h2 {
   text-align: center;
   font-family: "Helvetica";
   font-size: 1.5vw;
   line-height: 2vw;
   letter-spacing: 2.6700000762939453px;
 }
-
+#sign-details {
+  gap: 0;
+}
 #sign-details input {
   all: unset;
-  margin: 8px 0;
+  margin-bottom: 1vw;
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid black;
   text-align: left;
   width: 24vw;
+  align-self: flex-start;
+  font-family: Helvetica light;
 }
-
-#sign-details input::placeholder {
-  font-family: Helvetica;
+#sign-details label {
+  align-self: flex-start;
+  color: rgba(151, 151, 151, 1);
+  font-family: Helvetica light;
   font-size: 1.2vw;
-  font-weight: 200;
+  line-height: 1.25vw;
+  letter-spacing: 1.97px;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+#sign-details input::placeholder {
+  font-family: Helvetica light;
+  font-size: 1.2vw;
   line-height: 1.25vw;
   letter-spacing: 1.97px;
   text-align: left;
 }
-.login-btn {
-  all: unset;
-  cursor: pointer;
-  height: 3.3vw;
-  width: 14vw;
-  background: rgba(151, 151, 151, 1);
-  text-align: center;
+#black-style {
+  background-color: black;
   color: white;
-  padding: 5px 24px;
-  font-family: Helvetica light;
-  font-size: 1.25vw;
-  font-weight: bold;
-  line-height: 1.3vw;
-  letter-spacing: 2.67px;
-}
-#black-style{
-    background-color: black;
 }
 #sign-details p {
   cursor: pointer;
@@ -79,21 +77,20 @@
   letter-spacing: 1.9px;
   text-align: center;
 }
-#signin-main section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1vw;
+#sign-main section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
 }
-#signin-main section hr{
-    all: unset;
-    border: 1px rgba(151, 151, 151, 1) solid;
-    width: 11vw;
-    height: 0;
-}
-#sign-in-btn {
+#sign-main section hr {
   all: unset;
-  cursor: pointer;
+  border: 1px rgba(151, 151, 151, 1) solid;
+  width: 11vw;
+  height: 0;
+}
+.sign-in-btn {
+  all: unset;
   height: 3.3vw;
   width: 14vw;
   background: rgb(255, 255, 255);
@@ -106,4 +103,12 @@
   line-height: 1.3vw;
   letter-spacing: 2.67px;
   border: 2px black solid;
+}
+#black-style:hover {
+  background-color: rgba(81, 81, 81, 1);
+  cursor: pointer;
+
+}
+.sign-in-btn:hover {
+    cursor: no-drop;
 }
