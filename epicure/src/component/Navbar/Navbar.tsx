@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
           <input type="text" placeholder="Search for restaurant, Chefs" />
         </div>
 
-        <button>
+        <button onClick={() => navigate("/sign-in")} >
           <img src="/image/person.svg" alt="" />
         </button>
         <button>
