@@ -3,6 +3,7 @@ import epiqureReducer from "../slicer/epicureSlicer";
 import restaurantsReducer from "../slicer/restaurantSlicer";
 import chefsReducer from "../slicer/chefsSlicer";
 import dishesReducer from "../slicer/dishesSlicer";
+import orderReducer from "../slicer/orderSlicer"
 
 export interface IRestaurants{
   id:number;
@@ -27,7 +28,7 @@ export interface IChefs{
   about:string;
 }
 export interface IDishes{
-  id?:number;
+  id:number;
   name:string;
   restaurantId:number;
   rating:string;
@@ -52,11 +53,26 @@ export interface IDishState {
   value: IDishes[];
   specificDishes:IDishes[] | undefined
 }
+export interface IOrderState{
+  dishId?:number
+  restaurantId?:number;
+  price?:number;
+  totalPrice?:number;
+  quantity?:number;
+  info?:string[];
+  img?:string
+  name?:string
+}
+export interface IOrder {
+  value: IOrderState[];
+
+}
 
 export interface IRootState{
   chefs:IChefState;
   restaurants:IRestState;
   dishes:IDishState;
+  order:IOrder
 }
 
 export default configureStore({
@@ -65,5 +81,6 @@ export default configureStore({
     restaurants: restaurantsReducer,
     chefs: chefsReducer,
     dishes: dishesReducer,
+    order: orderReducer,
   },
 });

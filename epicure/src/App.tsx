@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import CartPopUp from "./component/CartapopUp/CartPopUp";
 import Chefs from "./component/Chefs/Chefs";
 import Home from "./component/Home/Home";
 import LogIn from "./component/LogIn/LogIn";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/chefs" element={<Chefs />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/your cart" element={<CartPopUp />} />
       </Routes>
     </BrowserRouter>
   );

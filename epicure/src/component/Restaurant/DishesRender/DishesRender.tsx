@@ -43,8 +43,6 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
   const openModal = (id:any):void => {
     setIsOpen(!isOpen)
     setDishId(id)
-    console.log(isOpen)
-
   }
   return (
     <>
@@ -71,7 +69,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
           </>
           ))}
       </div>
-          <DishModal onClose={openModal} open={isOpen} id={dishId}  /> 
+          {isOpen && <DishModal onClose={openModal} open={isOpen} id={dishId} />}
     </>
   );
 };

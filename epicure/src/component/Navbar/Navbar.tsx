@@ -4,10 +4,17 @@ import "../../GeneralStyle.css";
 import "./navStyle.css";
 import "../../fonts/helvetica/HelveticaNeue.ttf";
 import { NavLink } from "react-router-dom";
+import CartPopUp from "../CartapopUp/CartPopUp";
 const Navbar: React.FC = () => {
   const navigate: any = useNavigate();
   const [underLine, useUnderLine] = useState<boolean>(false);
+  const [openCartModal, setOpenCartModal] = useState<boolean>(false);
+  const handelCartModal = () => {
+    
+  }
+
   return (
+    <>
     <nav>
       <div id="left-nav">
         <button onClick={() => navigate("/")}>
@@ -35,11 +42,13 @@ const Navbar: React.FC = () => {
         <button onClick={() => navigate("/log-in")} >
           <img src="/image/person.svg" alt="" />
         </button>
-        <button>
+        <button onClick={()=> setOpenCartModal(!openCartModal)}>
           <img src="/image/shopping.svg" alt="" />
         </button>
       </div>
     </nav>
+    {openCartModal && <CartPopUp />}
+    </>
   );
 };
 
