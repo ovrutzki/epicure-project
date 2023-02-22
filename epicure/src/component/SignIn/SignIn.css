@@ -52,7 +52,7 @@
   letter-spacing: 1.97px;
   text-align: left;
 }
-#login-btn {
+.login-btn {
   all: unset;
   cursor: pointer;
   height: 3.3vw;
@@ -66,6 +66,9 @@
   font-weight: bold;
   line-height: 1.3vw;
   letter-spacing: 2.67px;
+}
+#black-style{
+    background-color: black;
 }
 #sign-details p {
   cursor: pointer;
