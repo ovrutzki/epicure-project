@@ -178,6 +178,7 @@ textarea {
   border: 0.6px solid rgba(151, 151, 151, 1);
   resize: none;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #cart-input input::placeholder {
   font-family: Helvetica;

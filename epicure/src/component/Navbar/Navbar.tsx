@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../GeneralStyle.css";
 import "./navStyle.css";
 import "../../fonts/helvetica/HelveticaNeue.ttf";
 import { NavLink } from "react-router-dom";
 import CartPopUp from "../CartapopUp/CartPopUp";
+import { useSelector } from "react-redux";
+import { IRootState } from "../../store/store/store";
 const Navbar: React.FC = () => {
   const navigate: any = useNavigate();
   const [underLine, useUnderLine] = useState<boolean>(false);
   const [openCartModal, setOpenCartModal] = useState<boolean>(false);
-  const handelCartModal = () => {
-    
-  }
+  const amountInCart = useSelector((state:IRootState) => state.order.value.length)
+
+  let cartRef:any = useRef()
+    useEffect(()=>{
+        let handler = (event:any) =>{
+            if(!cartRef?.current?.contains(event.target)){
+              setOpenCartModal(false)
+            }
+        }
+        document.addEventListener("mousedown",handler)
+
+        return () => {
+          document.removeEventListener("mousedown",handler)
+        }
+    })
 
   return (
     <>
@@ -42,12 +56,13 @@ const Navbar: React.FC = () => {
         <button onClick={() => navigate("/log-in")} >
           <img src="/image/person.svg" alt="" />
         </button>
-        <button onClick={()=> setOpenCartModal(!openCartModal)}>
+        <button id="shopping-icon" onClick={()=> setOpenCartModal(!openCartModal)}>
           <img src="/image/shopping.svg" alt="" />
+          {amountInCart>0 && <div id="amount-in-cart">{amountInCart}</div>}
         </button>
       </div>
     </nav>
-    {openCartModal && <CartPopUp />}
+    {openCartModal && <CartPopUp refprops={cartRef} />}
     </>
   );
 };

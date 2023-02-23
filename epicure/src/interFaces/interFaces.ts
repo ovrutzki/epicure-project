@@ -43,4 +43,5 @@ export interface IModal{
   open?:boolean
   onClose?:any
   restaurantName?:string | undefined
+  refProps?:any
 }

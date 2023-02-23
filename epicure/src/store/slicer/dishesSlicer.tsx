@@ -24,21 +24,17 @@ export const dishesSlicer = createSlice({
           state.value = state.specificDishes.filter((dish) =>
             dish.time.find((time) => time === "breakfast")
             );
-            console.log("1")
           break;
         case "Lunch":
           state.value = state.specificDishes.filter((dish) =>
             dish.time.find((time) => time === "lunch")
           );
-          console.log("12")
 
           break;
         case "Dinner":
           state.value = state.specificDishes.filter((dish) =>
             dish.time.find((time) => time === "dinner")
           );
-          console.log("3")
-
           break;
         default:
           state.value = state.specificDishes;

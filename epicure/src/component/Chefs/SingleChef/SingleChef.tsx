@@ -23,6 +23,8 @@ const SingleChef:  React.FC<any> = (props) => {
             }
         }
     }
+    const firstName:string[] | undefined = specificChef?.name.split(" ")
+
     console.log(chefRestaurants);
     return (<>
     <Navbar />
@@ -32,6 +34,7 @@ const SingleChef:  React.FC<any> = (props) => {
             <h1>{specificChef.name}</h1>
             <p>{specificChef.about}</p>
         </div>
+            <h1>{firstName[0]}`s Restaurants:</h1>
         <div id="chef-restaurant">
             {chefRestaurants.map((rest:ICard, index:number) => (
                 <>
@@ -39,10 +42,11 @@ const SingleChef:  React.FC<any> = (props) => {
                   key={index}
                   name={rest.name}
                   img={rest.img}
-                  class="card"
+                  class="rest"
                   id={rest.id}
                   rating={rest.rating}
                   chef={rest.chef}
+                  navi={`/restaurant/${rest.name}`}
                   />
                 </>
             ))}

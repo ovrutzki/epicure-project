@@ -22,8 +22,6 @@ export const orderSlicer = createSlice({
     deleteFromCart:(state:IOrder,action) =>{
         const x = state.value.findIndex((dish) => dish.dishId === action.payload)
         delete state.value[x]
-        console.log(state.value)
-        console.log(state.value.findIndex((dish) => dish.dishId === action.payload))
     }
   },
 });

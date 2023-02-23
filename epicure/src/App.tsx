@@ -20,7 +20,6 @@ function App() {
         <Route path="chefs/:chefName" element={<SingleChef />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/your cart" element={<CartPopUp />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import "./DishesRender.css";
 import FilterButtons from "../../Buttons/FilterButtons/Buttons";
 import { useState } from "react";
@@ -21,11 +21,28 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
   const specificDishes = useSelector(
     (state: IRootState) => state.dishes.specificDishes
   );
+  const filteredDishes = useSelector(
+    (state: IRootState) => state.dishes.value
+  );
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false)
   const [dishId, setDishId]:[number | undefined,Dispatch<SetStateAction<number | undefined>>] = useState()
   
+  let dishModalRef:any = useRef()
+    useEffect(()=>{
+        let handler = (event:any) =>{
+            if(!dishModalRef?.current?.contains(event.target)){
+              setIsOpen(false)
+            }
+        }
+        document.addEventListener("mousedown",handler)
+
+        return () => {
+          document.removeEventListener("mousedown",handler)
+        }
+    })
+
   useEffect(() => {
     dispatch(getDishesByRestId(props.restName));
   }, []);
@@ -52,7 +69,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
         </div>
       </div>
       <div className="dish-div" >
-        {specificDishes?.map((dish: ICard, index: number) => (
+        {filteredDishes?.map((dish: ICard, index: number) => (
           <>
           <Card
             key={index}
@@ -67,7 +84,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
           </>
           ))}
       </div>
-          {isOpen && <DishModal onClose={openModal} open={isOpen} id={dishId} restaurantName={props.restName}/>}
+          {isOpen && <DishModal refProps={dishModalRef} onClose={openModal} open={isOpen} id={dishId} restaurantName={props.restName}/>}
     </>
   );
 };

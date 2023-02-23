@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { HtmlHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteFromCart } from '../../store/slicer/orderSlicer'
 import { IRootState } from '../../store/store/store'
 import "./CartPopUp.css"
 
-const CartPopUp: React.FC = ()=> {
+export interface ICartModal{
+    refprops:any
+}
+
+const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
     const dispatch = useDispatch()
     const dishesInCart = useSelector((state: IRootState) => state.order.value);
     const checkoutPrice = useSelector((state: IRootState) => state.order.checkoutPrice);
@@ -15,7 +19,7 @@ const CartPopUp: React.FC = ()=> {
          },[])
 
   return (
-    <div id='cart-container'>
+    <div ref={props.refprops} id='cart-container'>
         <h1>YOUR ORDER</h1>
 { dishesInCart[0] ?  <><h2>{dishesInCart[0].restaurantName}</h2>
         <div id='dish-in-cart'>
@@ -44,7 +48,7 @@ const CartPopUp: React.FC = ()=> {
             <h3>Add A Comment</h3>
             <textarea placeholder='Special requests, allergies, deary restrictions, etc.'></textarea>
 
-        </div></> : <h3>Your Cart is Empty</h3>}
+        </div></> : <img src='/image/icons/empty bag.svg' />}
         <div id='btn-div'>
             <button id='checkout-btn'>CHECKOUT ₪{checkOut}</button>
             <button id='history-btn'>ORDER HISTORY</button>
@@ -55,6 +59,4 @@ const CartPopUp: React.FC = ()=> {
 
 export default CartPopUp
 
-function setState(): [any, any] {
-    throw new Error('Function not implemented.')
-}
+
