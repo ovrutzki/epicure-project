@@ -152,6 +152,9 @@
   font-family: Helvetica light;
   font-size: 1.2vw;
 }
+#delete{
+  align-self: flex-end;
+}
 #delete:hover {
   cursor: pointer;
   font-weight: bold;

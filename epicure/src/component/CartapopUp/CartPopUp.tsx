@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteFromCart } from '../../store/slicer/orderSlicer'
 import { IRootState } from '../../store/store/store'
 import "./CartPopUp.css"
 
 const CartPopUp: React.FC = ()=> {
+    const dispatch = useDispatch()
     const dishesInCart = useSelector((state: IRootState) => state.order.value);
-    const restToOrder = useSelector((state: IRootState) => state.restaurants.value.find((rest) => rest.id === dishesInCart[0].restaurantId )) || undefined;
+    const checkoutPrice = useSelector((state: IRootState) => state.order.checkoutPrice);
+    // const restToOrder = useSelector((state: IRootState) => state.restaurants.value.find((rest) => rest.id === dishesInCart[0].restaurantId ));
     const [checkOut, setCheckOut] = useState(0)
     useEffect(() => {
-        dishesInCart.map((total) => 
-        {total.totalPrice && setCheckOut( checkOut + total.totalPrice)}
-         )},[])
+        setCheckOut( checkOut + checkoutPrice)
+         },[])
 
   return (
     <div id='cart-container'>
         <h1>YOUR ORDER</h1>
-        <h2>{restToOrder?.name}</h2>
+{ dishesInCart[0] ?  <><h2>{dishesInCart[0].restaurantName}</h2>
         <div id='dish-in-cart'>
-        {dishesInCart.map((dish)=> {
-         return   <div id='single-dish'>
+        {dishesInCart.map((dish,index:number)=> {
+         return   <div key={index} id='single-dish'>
                 <img src={dish.img} alt={dish.name} />
                 <div id='mid-div'>
                     <div id='mid-up'>
@@ -33,7 +35,7 @@ const CartPopUp: React.FC = ()=> {
                         )}
                     </div>
                 </div>
-                <div id='right-div'><p id='delete'>X</p><p>₪{dish.price}</p></div>
+                <div id='right-div'><button onClick={() =>dispatch(deleteFromCart(dish.dishId))} id='delete'>X</button><p>₪{dish.price}</p></div>
             </div>
         })}
         </div>
@@ -42,7 +44,7 @@ const CartPopUp: React.FC = ()=> {
             <h3>Add A Comment</h3>
             <textarea placeholder='Special requests, allergies, deary restrictions, etc.'></textarea>
 
-        </div>
+        </div></> : <h3>Your Cart is Empty</h3>}
         <div id='btn-div'>
             <button id='checkout-btn'>CHECKOUT ₪{checkOut}</button>
             <button id='history-btn'>ORDER HISTORY</button>

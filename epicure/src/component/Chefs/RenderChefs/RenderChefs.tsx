@@ -1,12 +1,12 @@
 import React from "react";
-import "./ChefCard.css";
+import "./RenderChefs.css";
 import data from "../../../epicure.json";
 import { IChefCard } from "../../../interFaces/interFaces";
 import {useSelector} from "react-redux"
 import { IRootState } from "../../../store/store/store";
 import { useNavigate } from "react-router-dom";
 
-const ChefCard: React.FC = () => {
+const RenderChefs: React.FC = () => {
   const chefsArray = useSelector(
     (state:IRootState) => state.chefs.value
   )
@@ -18,7 +18,7 @@ const ChefCard: React.FC = () => {
     <>
       <div  id="main-chef">
         {chefsArray.map((chef: IChefCard, index: number) => (
-          <section id="chef-section" onClick={() => onCardClick(chef.name)}>
+          <section id="chef-section">
             <img src={chef.img} key={index} alt={chef.name} />
             <h1>{chef.name}</h1>
           </section>
@@ -28,4 +28,4 @@ const ChefCard: React.FC = () => {
   );
 };
 
-export default ChefCard;
+export default RenderChefs;

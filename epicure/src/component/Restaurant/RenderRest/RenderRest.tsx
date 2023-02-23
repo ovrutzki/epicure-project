@@ -3,6 +3,7 @@ import { ICard, IRenderRest } from "../../../interFaces/interFaces";
 import Card from "../../Card/Card";
 import { useSelector } from "react-redux";
 import { IRootState } from "../../../store/store/store";
+import "./RenderRest.css"
 
 const RenderRest: any = (props: IRenderRest) => {
   const filteredRest = useSelector((state: IRootState) => state.restaurants.value);
@@ -20,7 +21,7 @@ const RenderRest: any = (props: IRenderRest) => {
               price={card.price}
               chef={card.chef}
               rating={card.rating}
-              navigate={card.name}
+              navi={card.name}
             />
         ))}
       </div>

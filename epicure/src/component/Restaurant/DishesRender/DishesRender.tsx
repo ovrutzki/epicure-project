@@ -18,11 +18,9 @@ export interface IRestName {
 }
 
 const DishesRender: React.FC<IRestName> = (props: IRestName) => {
-  const dishArray = useSelector((state: IRootState) => state.dishes.value);
   const specificDishes = useSelector(
     (state: IRootState) => state.dishes.specificDishes
   );
-  const restArray = useSelector((state: IRootState) => state.restaurants.value);
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false)
@@ -69,7 +67,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
           </>
           ))}
       </div>
-          {isOpen && <DishModal onClose={openModal} open={isOpen} id={dishId} />}
+          {isOpen && <DishModal onClose={openModal} open={isOpen} id={dishId} restaurantName={props.restName}/>}
     </>
   );
 };

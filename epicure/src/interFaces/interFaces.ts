@@ -8,12 +8,16 @@ export interface ICard {
   chef?: string;
   rating?: string;
   class?: string;
-  navigate?:string;
+  navi?:string;
   onClick?:any;
 }
 export interface IChefCard {
   img?: string;
   name?: string;
+  navi?:string;
+  about?:string;
+  restaurants?:number[];
+  onClick?:any;
 }
 
 export interface IPopular {
@@ -38,4 +42,5 @@ export interface IModal{
   id?:number
   open?:boolean
   onClose?:any
+  restaurantName?:string | undefined
 }

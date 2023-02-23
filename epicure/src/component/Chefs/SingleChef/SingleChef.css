@@ -1,0 +1,15 @@
+#chef-container{
+    display: flex;
+    flex-direction: column;
+
+}
+#chef-details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#chef-restaurant{
+    display: flex;
+    justify-content: center;
+}

@@ -21,7 +21,7 @@ export interface IRestaurants{
 export interface IChefs{
   id:number;
   name:string;
-  restaurant:string[];
+  restaurant:number[];
   aga:number;
   icons:string;
   img:string;
@@ -62,9 +62,11 @@ export interface IOrderState{
   info?:string[];
   img?:string
   name?:string
+  restaurantName?:string
 }
 export interface IOrder {
   value: IOrderState[];
+  checkoutPrice: number;
 
 }
 

@@ -11,6 +11,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
     state.dishes.value.find((dish) => dish.id === props.id)
   );
   const dispatch = useDispatch();
+  // adding the user changes
   const [changes, setChanges] = useState<string[]>([]);
   const handleChanges = (event: any) => {
     const option = event.target.value;
@@ -21,15 +22,16 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
       setChanges(changes.filter((changes) => changes !== option));
     }
   };
+    // adding the user side choice
   const [sideChoice, setSideChoice]: [
     string,
     Dispatch<SetStateAction<string>>
   ] = useState<string>("");
   const handelSides = (event: any) => {
     const option = event.target.value;
-    const usChecked = event.target.checked;
     setSideChoice(option);
   };
+
   const [quantity, setQuantity] = useState(1);
   // const [userDishForCart, setUserDishForCart] = useState()
 
@@ -42,9 +44,9 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
     info: [...changes, sideChoice],
     img: clickedDish?.img,
     name: clickedDish?.name,
+    restaurantName: props.restaurantName,
   };
 
-  if (props.open === false) return null;
   return (
     <>
       <div id="modal-content">
@@ -62,8 +64,8 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
           <div id="modal-bottom">
             <form>
               <h1>Choose a side</h1>
-              {clickedDish?.sides.map((side) => (
-                <label htmlFor="">
+              {clickedDish?.sides.map((side, index:number) => (
+                <label key={index} htmlFor="">
                   <input
                     onChange={handelSides}
                     name="sides"
@@ -76,8 +78,8 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </form>
             <form>
               <h1>Changes</h1>
-              {clickedDish?.changes.map((change) => (
-                <label htmlFor="">
+              {clickedDish?.changes.map((change, index:number) => (
+                <label key={index} htmlFor="">
                   <input
                     onChange={handleChanges}
                     value={change}

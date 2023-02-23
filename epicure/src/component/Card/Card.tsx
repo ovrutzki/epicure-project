@@ -5,12 +5,12 @@ import "./Card.css";
 
 const  Card: React.FC <ICard> = (props: ICard) => {
   const navigate = useNavigate();
-  const onCardClick = (restName?: string) => {
-    navigate(restName ? restName : "");
+  const onCardClick = (navi?: string) => {
+    navigate(navi ? navi : "");
   };
   return (
     <>
-      <div className={props.class} onClick={(e) => props.navigate ? onCardClick(props.name) : props.onClick(e)}>
+      <div className={props.class} onClick={(e) => props.navi ? onCardClick(props.navi) : props.onClick(e)}>
         {props.img ? <img className="img-rest food" src={props.img}/> : <img className="img-dish food" src={props.img}/>}
         <div className="card-downer-div">
           <h1>{props.name} </h1>
