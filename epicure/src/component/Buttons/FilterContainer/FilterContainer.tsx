@@ -15,9 +15,9 @@ const FilterContainer: React.FC<IButtons> = () =>{
       z(false)
       setSpecificRef(refSet)
     }
-    let priceRef= useRef()
-    let distanceRef = useRef()
-    let ratingRef = useRef()
+    let priceRef= useRef<HTMLElement>()
+    let distanceRef = useRef<HTMLElement>()
+    let ratingRef = useRef<HTMLElement>()
 
     useEffect(()=>{
         let handler = (event:any) =>{
