@@ -21,7 +21,7 @@ const RenderRest: any = (props: IRenderRest) => {
               price={card.price}
               chef={card.chef}
               rating={card.rating}
-              navi={card.name}
+              navigatePath={card.name}
             />
         ))}
       </div>

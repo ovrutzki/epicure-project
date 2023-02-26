@@ -8,14 +8,13 @@ import Navbar from "../../Navbar/Navbar";
 import Footer from "../../Footer/Footer";
 import { ICard, IChefCard } from "../../../interFaces/interFaces";
 
-const SingleChef:  React.FC<any> = (props) => {
+const SingleChef:  React.FC<IChefCard> = (props) => {
     const chefArray = useSelector((state: IRootState) => state.chefs.value)
     const restArray = useSelector((state: IRootState) => state.restaurants.value)
     let { chefName } = useParams();
     let chefIndex = chefArray.findIndex((chef: IChefCard) => chef.name === chefName);
     const specificChef = chefArray[chefIndex];
     const chefRestaurants = [];
-    // const chefRestaurants = restArray.filter((rest) => rest.id === (specificChef.restaurant.map((x) => x)))
     for (let i = 0; i < restArray.length; i++){
         for(let j=0; j< specificChef.restaurant.length; j++){
             if(restArray[i].id === specificChef.restaurant[j]){
@@ -25,7 +24,6 @@ const SingleChef:  React.FC<any> = (props) => {
     }
     const firstName:string[] | undefined = specificChef?.name.split(" ")
 
-    console.log(chefRestaurants);
     return (<>
     <Navbar />
     <div id="chef-container">
@@ -46,7 +44,7 @@ const SingleChef:  React.FC<any> = (props) => {
                   id={rest.id}
                   rating={rest.rating}
                   chef={rest.chef}
-                  navi={`/restaurant/${rest.name}`}
+                  navigatePath={`/restaurant/${rest.name}`}
                   />
                 </>
             ))}

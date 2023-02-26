@@ -33,7 +33,7 @@ const Popular: React.FC<any> = (props) => {
               price={card.price}
               chef={card.chef}
               rating={card.rating}
-              navi = {`restaurant/${card.name}`}
+              navigatePath = {`restaurant/${card.name}`}
             />
           ))}
         </div>

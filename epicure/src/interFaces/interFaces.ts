@@ -8,13 +8,13 @@ export interface ICard {
   chef?: string;
   rating?: string;
   class?: string;
-  navi?:string;
+  navigatePath?:string;
   onClick?:any;
 }
 export interface IChefCard {
   img?: string;
   name?: string;
-  navi?:string;
+  navigatePath?:string;
   about?:string;
   restaurants?:number[];
   onClick?:any;
@@ -25,6 +25,7 @@ export interface IPopular {
 }
 
 export interface IButtons {
+  refProps?: any;
   name: string;
   value?: string;
   filter?: string;

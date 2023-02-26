@@ -22,7 +22,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
       setChanges(changes.filter((changes) => changes !== option));
     }
   };
-    // adding the user side choice
+  // adding the user side choice
   const [sideChoice, setSideChoice]: [
     string,
     Dispatch<SetStateAction<string>>
@@ -50,7 +50,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
   return (
     <>
       <div id="modal-content">
-        <div id="modal">
+        <div ref={props.refProps} id="modal">
           <button id="close" onClick={props.onClose}>
             X
           </button>
@@ -64,7 +64,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
           <div id="modal-bottom">
             <form>
               <h1>Choose a side</h1>
-              {clickedDish?.sides.map((side, index:number) => (
+              {clickedDish?.sides.map((side, index: number) => (
                 <label key={index} htmlFor="">
                   <input
                     onChange={handelSides}
@@ -78,7 +78,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </form>
             <form>
               <h1>Changes</h1>
-              {clickedDish?.changes.map((change, index:number) => (
+              {clickedDish?.changes.map((change, index: number) => (
                 <label key={index} htmlFor="">
                   <input
                     onChange={handleChanges}

@@ -1,7 +1,8 @@
 import React, { HtmlHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { RefactorActionInfo } from 'typescript'
 import { deleteFromCart } from '../../store/slicer/orderSlicer'
-import { IRootState } from '../../store/store/store'
+import { IOrderState, IRootState } from '../../store/store/store'
 import "./CartPopUp.css"
 
 export interface ICartModal{
@@ -12,7 +13,6 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
     const dispatch = useDispatch()
     const dishesInCart = useSelector((state: IRootState) => state.order.value);
     const checkoutPrice = useSelector((state: IRootState) => state.order.checkoutPrice);
-    // const restToOrder = useSelector((state: IRootState) => state.restaurants.value.find((rest) => rest.id === dishesInCart[0].restaurantId ));
     const [checkOut, setCheckOut] = useState(0)
     useEffect(() => {
         setCheckOut( checkOut + checkoutPrice)
@@ -23,7 +23,7 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
         <h1>YOUR ORDER</h1>
 { dishesInCart[0] ?  <><h2>{dishesInCart[0].restaurantName}</h2>
         <div id='dish-in-cart'>
-        {dishesInCart.map((dish,index:number)=> {
+        {dishesInCart.map((dish:IOrderState,index:number)=> {
          return   <div key={index} id='single-dish'>
                 <img src={dish.img} alt={dish.name} />
                 <div id='mid-div'>
@@ -35,7 +35,7 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
                         </div>
                     </div>
                     <div id='mid-down'>
-                        {dish.info && dish.info.map((info) => info !== "" && (<><p>{info}</p><hr /></>) 
+                        {dish.info && dish.info.map((info:string) => info !== "" && (<><p>{info}</p><hr /></>) 
                         )}
                     </div>
                 </div>

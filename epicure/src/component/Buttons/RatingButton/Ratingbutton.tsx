@@ -11,7 +11,7 @@ const RatingButton: React.FC<IButtons> = (props:IButtons) => {
     setRating(ratingTarget);
   };
       return (<>
-      <div className="rating-popup ">
+      <div ref={props.refProps} className="rating-popup ">
           <h2>{props.name}</h2>
           <div id={props.name} className="rating-div" >
             <form action="">

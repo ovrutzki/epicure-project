@@ -7,7 +7,7 @@ import './LogIn.css'
  const LogIn:React.FC = () => {
     const navigate = useNavigate()
     const [email,setEmail]:[string, Dispatch<SetStateAction<string>>] = useState("")
-    const [password,setPassword]:any = useState("")
+    const [password,setPassword] = useState("")
     
     const [black,setBlack]:[string, Dispatch<SetStateAction<string>>] = useState("")
     const emailOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {

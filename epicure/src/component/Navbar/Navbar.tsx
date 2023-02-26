@@ -14,9 +14,10 @@ const Navbar: React.FC = () => {
   const amountInCart = useSelector((state:IRootState) => state.order.value.length)
 
   let cartRef:any = useRef()
+  let cartButtonRef:any = useRef()
     useEffect(()=>{
         let handler = (event:any) =>{
-            if(!cartRef?.current?.contains(event.target)){
+            if(!cartRef?.current?.contains(event.target) && !cartButtonRef?.current?.contains(event.target)){
               setOpenCartModal(false)
             }
         }
@@ -56,7 +57,7 @@ const Navbar: React.FC = () => {
         <button onClick={() => navigate("/log-in")} >
           <img src="/image/person.svg" alt="" />
         </button>
-        <button id="shopping-icon" onClick={()=> setOpenCartModal(!openCartModal)}>
+        <button ref={cartButtonRef}  id="shopping-icon" onClick={()=> setOpenCartModal(!openCartModal)}>
           <img src="/image/shopping.svg" alt="" />
           {amountInCart>0 && <div id="amount-in-cart">{amountInCart}</div>}
         </button>

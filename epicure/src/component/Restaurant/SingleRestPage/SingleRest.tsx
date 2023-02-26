@@ -22,7 +22,7 @@ const SingleRest: React.FC<any> = (props) => {
           img={specificRest.img}
           name={specificRest.name}
           chef={specificRest.chef} id={specificRest.id}
-          navi = {""}
+          navigatePath = {""}
         />
         {specificRest.openDays.findIndex((e) => e === d.getDay()) !==
           -1 &&

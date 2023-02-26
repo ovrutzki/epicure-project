@@ -11,8 +11,8 @@ const ChefCard: React.FC = () => {
     (state:IRootState) => state.chefs.value
   )
   const navigate = useNavigate();
-  const onCardClick = (navi?: string) => {
-    navigate(navi ? navi : "");
+  const onCardClick = (navigatePath?: string) => {
+    navigate(navigatePath ? navigatePath : "");
   };
   return (
     <>

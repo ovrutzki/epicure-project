@@ -23,7 +23,7 @@ const DistanceButton: React.FC<IButtons> = (props:IButtons) => {
   };
 
   return (
-    <div className="distance-popup">
+    <div ref={props.refProps} className="distance-popup">
           <h2>{props.name}</h2>
           <div id={props.name} className="slider-div" >
           <section><p>My Location</p><p>{distance}km</p></section>
