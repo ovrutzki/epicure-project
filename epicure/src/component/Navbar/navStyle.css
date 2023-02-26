@@ -3,11 +3,12 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
-  height: 36px;
+  height: 2.5vw;
   width: 90%;
   align-items: flex-end;
   padding: 14px 5%;
-  border-bottom: 0.2px solid rgba(151, 151, 151, 1)
+  border-bottom: 0.2px solid rgba(151, 151, 151, 1);
+  margin-top: 15px;
 }
 #right-nav {
   display: flex;
@@ -40,7 +41,6 @@ nav {
 #search {
   display: flex;
   flex-direction: row;
-  
 }
 
 #search input[type="text"] {
@@ -74,7 +74,6 @@ nav {
   width: 400px;
   border: 1px black solid;
   cursor: text;
-
 }
 
 .underline {
@@ -100,4 +99,17 @@ nav {
   text-align: left;
   cursor: pointer;
   padding: 6px;
+}
+#shopping-icon {
+  position: relative;
+}
+#amount-in-cart {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  top: -4px;
+  left: -4px;
 }

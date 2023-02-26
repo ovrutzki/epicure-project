@@ -5,8 +5,9 @@ footer {
   align-items: center;
   gap: 3vw;
   border-top: 0.2px solid rgba(151, 151, 151, 1);
-  height: 85px;
+  height: 6vw;
   margin-top: 3vw;
+
 }
 .footer-link {
   all: unset;

@@ -31,7 +31,7 @@ export const PriceButton:React.FC<IButtons> = (props: IButtons) => {
     }
   
     return (
-        <div className="price-popup">
+        <div ref={props.refProps} className="price-popup">
           <h2>{props.name} selected</h2>
           { minValue < maxValue ? <p>₪{minValue} - ₪{maxValue}</p>  : <p>₪{maxValue}- ₪{minValue}</p>  }
           <div id={props.name} className="slider-div" >

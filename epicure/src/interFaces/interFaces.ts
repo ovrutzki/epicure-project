@@ -1,6 +1,6 @@
 export interface ICard {
   id?: number;
-  name: string;
+  name: string | undefined;
   price?: number;
   icons?: string[];
   img?: string;
@@ -8,11 +8,16 @@ export interface ICard {
   chef?: string;
   rating?: string;
   class?: string;
-  navigate?:string;
+  navigatePath?:string;
+  onClick?:any;
 }
 export interface IChefCard {
   img?: string;
   name?: string;
+  navigatePath?:string;
+  about?:string;
+  restaurants?:number[];
+  onClick?:any;
 }
 
 export interface IPopular {
@@ -20,6 +25,7 @@ export interface IPopular {
 }
 
 export interface IButtons {
+  refProps?: any;
   name: string;
   value?: string;
   filter?: string;
@@ -31,4 +37,12 @@ export interface IButtons {
 
 export interface IRenderRest {
   sortFilter: string;
+}
+
+export interface IModal{
+  id?:number
+  open?:boolean
+  onClose?:any
+  restaurantName?:string | undefined
+  refProps?:any
 }

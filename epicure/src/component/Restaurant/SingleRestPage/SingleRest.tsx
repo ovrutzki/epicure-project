@@ -10,7 +10,6 @@ import Navbar from "../../Navbar/Navbar";
 const SingleRest: React.FC<any> = (props) => {
   let { restName } = useParams();
   const restArray = useSelector((state: IRootState) => state.restaurants.value);
-  const dishArray = useSelector((state: IRootState) => state.dishes.value);
   let restIndex = restArray.findIndex((e: any) => e.name === restName);
   let d = new Date();
   const specificRest = restArray[restIndex]
@@ -23,7 +22,7 @@ const SingleRest: React.FC<any> = (props) => {
           img={specificRest.img}
           name={specificRest.name}
           chef={specificRest.chef} id={specificRest.id}
-          navigate = {""}
+          navigatePath = {""}
         />
         {specificRest.openDays.findIndex((e) => e === d.getDay()) !==
           -1 &&
