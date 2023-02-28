@@ -6,7 +6,7 @@ nav {
   height: 2.5vw;
   width: 90%;
   align-items: flex-end;
-  padding: 14px 5%;
+  padding: 14px 5% 1vw 5%;
   border-bottom: 0.2px solid rgba(151, 151, 151, 1);
   margin-top: 15px;
 }
@@ -43,9 +43,7 @@ nav {
   flex-direction: row;
 }
 
-#search input[type="text"] {
-  all: unset;
-}
+
 #search input[type="text"] {
   all: unset;
   text-align: start;
@@ -113,3 +111,52 @@ nav {
   top: -4px;
   left: -4px;
 }
+.hamburger{
+  display: none;
+}
+.symbol{
+  display: none;
+}
+
+@media screen and (max-width: 450px) {
+nav{
+  position: relative;
+}
+  #left-nav {
+    display: none;
+  }
+  #right-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    max-width: 120px;
+  }
+ .hampurger{
+  cursor: pointer;
+ }
+ .symbol{
+  display: flex;
+  position: absolute;
+  left: 50%;
+}
+ #search input[type="text"] {
+  all: unset;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background-color: white;
+  background-image: url("../../../public/image/icons/search.svg");
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 10px 30px 10px 10px;
+  -webkit-transition: width 0.4s ease-out;
+  transition: width 0.4s ease-out;
+  height: 30px;
+}
+#left-nav img{
+  all: unset;
+  display:block ;
+}
+}
+  
+
