@@ -131,13 +131,15 @@ nav{
     gap: 3vw;
     max-width: 120px;
   }
- .hampurger{
+ .hamburger{
+  display: flex;
   cursor: pointer;
  }
  .symbol{
   display: flex;
   position: absolute;
   left: 50%;
+  transform: translate(-50%);
 }
  #search input[type="text"] {
   all: unset;
@@ -157,6 +159,7 @@ nav{
   all: unset;
   display:block ;
 }
+
 }
   
 

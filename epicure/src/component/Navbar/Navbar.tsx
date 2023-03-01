@@ -37,8 +37,8 @@ const Navbar: React.FC = () => {
   });
 
   //mobile nav bar
-  const hamburgerIcon = <IoMdMenu onClick={() => setOpenMenu(!openMenu)} className="hampurger" size='40px' />
-  const closeIcone = <AiOutlineClose onClick={() => setOpenMenu(!openMenu)} className="hampurger" size='30px' />
+  const hamburgerIcon = <IoMdMenu onClick={() => setOpenMenu(!openMenu)} className="hamburger" size='40px' />
+  const closeIcone = <AiOutlineClose onClick={() => setOpenMenu(!openMenu)} className="hamburger" size='30px' />
 
 
   return (
