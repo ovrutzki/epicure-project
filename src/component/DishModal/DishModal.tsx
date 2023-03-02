@@ -46,6 +46,10 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
     name: clickedDish?.name,
     restaurantName: props.restaurantName,
   };
+  const btnFunction = () => {
+    dispatch(addToCart(userDishForCart));
+    props.onClose();
+  };
 
   return (
     <>
@@ -101,10 +105,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
                 </button>
               </div>
             </div>
-            <button
-              onClick={() => dispatch(addToCart(userDishForCart))}
-              id="cart-btn"
-            >
+            <button onClick={btnFunction} id="cart-btn">
               ADD TO CART
             </button>
           </div>

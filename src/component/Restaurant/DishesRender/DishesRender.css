@@ -34,3 +34,9 @@
 #filter-dish button:focus {
   text-decoration: underline 2px rgba(222, 146, 0, 0.9);
 }
+
+@media screen and (max-width: 450px) {
+  #main-dishes{
+    align-self: flex-start;
+  }
+}

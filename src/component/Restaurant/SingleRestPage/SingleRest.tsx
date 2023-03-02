@@ -6,6 +6,7 @@ import { IRootState } from "../../../store/store/store";
 import Card from "../../Card/Card";
 import DishesRender from "../DishesRender/DishesRender";
 import Navbar from "../../Navbar/Navbar";
+import Footer from "../../Footer/Footer";
 
 const SingleRest: React.FC<any> = (props) => {
   let { restName } = useParams();
@@ -28,12 +29,13 @@ const SingleRest: React.FC<any> = (props) => {
           -1 &&
         specificRest.openHours[0] < d.getHours() &&
         specificRest.openHours[1] > d.getHours() ? (
-          <div>
+          <div className="open-now-div">
             <img className="open-now" src="/image/icons/open now.svg" />
           </div>
         ) : null}
         <DishesRender restName={restName} />
       </div>
+      <Footer />
     </>
   );
 };

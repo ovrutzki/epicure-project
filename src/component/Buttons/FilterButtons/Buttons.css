@@ -28,5 +28,8 @@
   border-radius: 0px;
   background: rgba(208, 207, 207, 1);
 }
+@media screen and (max-width: 450px){
+  
+}
 
 
