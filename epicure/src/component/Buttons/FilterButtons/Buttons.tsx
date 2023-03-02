@@ -18,6 +18,14 @@ export const SimpleButtons = styled.button`
     font-family: "Helvetica medium";
     font-weight: bolder;
   }
+  @media screen and (max-width: 450px){
+    font-size: 4vw;
+    &:focus {
+      font-family: "Helvetica medium";
+      font-weight: bold;
+      text-decoration:underline 1.8px solid rgba(222, 146, 0, 0.9);
+    }
+  }
 `;
 
 

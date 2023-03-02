@@ -29,6 +29,7 @@ footer {
     height: 57vw;
     margin-top: 3vw;
     padding-left: 5vw;
+    border-top: 0.2px solid rgba(151, 151, 151, 1);
   }
   .footer-link {
     all: unset;

@@ -22,7 +22,7 @@
 .popular button img{
   height: 3vw;
 }
-.dish{
+.three-div .dish{
   pointer-events: none;
 }
 

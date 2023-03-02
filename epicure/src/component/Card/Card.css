@@ -136,4 +136,10 @@
     top: 40vw;
     left: 1vw;
   }
+  .rest .card-downer-div{
+    align-items: start;
+  }
+  .rest .card-downer-div h1{
+    font-family: Helvetica light;
+  }
 }

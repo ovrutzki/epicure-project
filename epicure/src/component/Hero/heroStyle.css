@@ -15,8 +15,8 @@
   align-items: center;
   justify-content: center;
   height: 15vw;
-  width: 68vh;
-  padding: 10px 10vw;
+  width: 68vw;
+  padding: 10px 5vw;
   background-color: rgba(255, 255, 255, 0.695);
 }
 #white-div p {
