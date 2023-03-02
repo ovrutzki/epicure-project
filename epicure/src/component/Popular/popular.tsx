@@ -19,8 +19,8 @@ const Popular: React.FC<any> = (props) => {
   return (
     <>
       <div className="popular">
-       <h1>{props.header}</h1>
-        
+        <h1>{props.header}</h1>
+
         <div className="three-div">
           {popular.map((card: ICard, index: number) => (
             <Card
@@ -33,7 +33,7 @@ const Popular: React.FC<any> = (props) => {
               price={card.price}
               chef={card.chef}
               rating={card.rating}
-              navigatePath = {`restaurant/${card.name}`}
+              navigatePath={`restaurant/${card.name}`}
             />
           ))}
         </div>
