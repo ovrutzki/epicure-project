@@ -22,6 +22,33 @@
 .popular button img{
   height: 3vw;
 }
-.dish{
+
+.three-div .dish{
   pointer-events: none;
+}
+
+@media screen and (max-width: 450px) {
+  body{
+    overflow-x:hidden;
+  }
+  .popular h1 {
+    font-size: 5vw;
+  }
+  .three-div {
+    width: 300px;
+    overflow-x: scroll;
+    justify-content: start;
+    gap:12.5vw;
+    padding: 0 50px;
+  }
+  .three-div::-webkit-scrollbar{
+    display: none;
+  }
+  .popular button {
+    align-self: flex-start;
+    margin-left: 6vw;
+  }
+  .popular button img{
+    height: 7vw;
+  }
 }

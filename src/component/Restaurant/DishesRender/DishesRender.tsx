@@ -72,12 +72,13 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
         {filteredDishes?.map((dish: ICard, index: number) => (
           <>
           <Card
+            class = "card dish"
             key={index}
             name={dish.name}
             img={dish.img}
+            icons={dish.icons}
             about={dish.about}
             price={dish.price}
-            class="card"
             onClick = {() => openModal(dish.id)}
             id={dish.id}
             />

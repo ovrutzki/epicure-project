@@ -31,3 +31,17 @@
 #restaurant .food{
     padding-top: 2vw;
 }
+@media screen and (max-width: 450px){
+  #main-filter {
+    margin-bottom: 5vw;
+  }
+  #filter-div {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+  }
+  #range-div {
+    display: none;
+  }
+}
