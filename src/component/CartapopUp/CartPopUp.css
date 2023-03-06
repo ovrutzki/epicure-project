@@ -226,3 +226,20 @@ textarea {
   letter-spacing: 2.67px;
   border: 2px black solid;
 }
+@media screen and (max-width: 450px) {
+  #cart-container {
+    width: 100%;
+    gap: 5vw;
+  }
+  #cart-container h1 {
+    font-size: 5vw;
+  }
+  #checkout-btn, #history-btn{
+    height:13vw;
+    width:55vw ;
+    font-size: 4.5vw;
+    font-family: "Helvetica light";
+    font-weight: bold;
+  }
+
+}

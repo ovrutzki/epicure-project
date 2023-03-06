@@ -19,7 +19,7 @@ const  Card: React.FC <ICard> = (props: ICard) => {
           
           <p id="about-dish">{props.chef ? props.chef : props.about}</p>
             {props.chef ? <img className="rating" src={props.rating} alt="rating"/> : null}
-            {props.price ? <div ><hr /><p>₪{props.price}</p><hr /></div> : null }
+            {props.price ? <div className="price-div" ><hr /><p>₪{props.price}</p><hr /></div> : null }
         </div>
       </div>
     </>

@@ -72,7 +72,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
         {filteredDishes?.map((dish: ICard, index: number) => (
           <>
           <Card
-            class = "card dish"
+            class = "card dish-render dish"
             key={index}
             name={dish.name}
             img={dish.img}

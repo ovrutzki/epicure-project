@@ -1,9 +1,9 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./DishModal.css";
 import Card from "../Card/Card";
-import { ICard, IModal } from "../../interFaces/interFaces";
+import { IModal } from "../../interFaces/interFaces";
 import { useDispatch, useSelector } from "react-redux";
-import { IDishes, IOrderState, IRootState } from "../../store/store/store";
+import {  IOrderState, IRootState } from "../../store/store/store";
 import { addToCart } from "../../store/slicer/orderSlicer";
 
 const DishModal: React.FC<IModal> = (props: IModal) => {
@@ -69,12 +69,13 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             <form>
               <h1>Choose a side</h1>
               {clickedDish?.sides.map((side, index: number) => (
-                <label key={index} htmlFor="">
+                <label className="check-label" key={index} htmlFor="">
                   <input
                     onChange={handelSides}
                     name="sides"
                     value={side}
                     type="radio"
+                    className="radio"
                   />
                   {side}
                 </label>
@@ -88,6 +89,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
                     onChange={handleChanges}
                     value={change}
                     type="checkbox"
+                    className="check"
                   />
                   {change}
                 </label>
@@ -95,7 +97,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </form>
             <div id="quantity">
               <h1>Quantity</h1>
-              <div>
+              <div >
                 <button onClick={() => setQuantity((quantity) => quantity - 1)}>
                   <img src="/image/icons/minus.svg" alt="minus" />
                 </button>

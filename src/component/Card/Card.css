@@ -33,6 +33,9 @@
 .dish .food {
   height: 21vw;
 }
+.dish-render .food {
+  height: 12vw;
+}
 .rest .food {
   height: 16vw;
 }
@@ -111,6 +114,7 @@
     padding-top: 4vw;
     gap: 4vw;
     height:63vw;
+    align-items: flex-start;
   }
   #about-dish {
     font-size: 4vw;
@@ -125,6 +129,12 @@
   .card-downer-div div{
     margin-left: 15px;
     justify-content: start;
+  }
+  .card-downer-div h1{
+    font-family: "Helvetica light";
+    font-size: 4vw;
+    font-weight: bold;
+    line-height: 5.3vw;
   }
   .card-downer-div p{
     font-size: 4vw;
