@@ -30,7 +30,10 @@ export const getAllUsers = async (req: Request, res: Response) => {
         if(!(first && last && address && phone && email && password)){
           res.status(400).send("All inputs are require");
         } 
-          console.log("in try ",  req.body)
+        const oldUser = allUsers.find((user) => user.email === email)
+        if(oldUser){
+          return res.status(409).send("User Already Exist. Please Login");
+        } 
 
           const encryptedPassword = password !== undefined ?  await bcrypt.hash(password, 10) : "err" ;
           
@@ -56,5 +59,15 @@ export const getAllUsers = async (req: Request, res: Response) => {
         }    
     }
 
+    export const loginUser = async (req: Request, res: Response) =>{
+      const email = req.body.email
+      const password = req.body.password
+      try {
+        // findUser = 
+        
+      } catch (error) {
+        
+      }
+    }
 
 

@@ -13,15 +13,11 @@ export const getUsers = async () => {
 
 export const registerNewUser = async (user: IUser) => {
   try {
-    const oldUser = await UserModel.findOne({ email: user.email });
-    if (oldUser) {
-      return console.error("User Already Exist. Please Login");
-    } else {
       const _user = new UserModel(user);
       await _user.save();
       return _user;
     }
-  } catch (err) {
+   catch (err) {
     console.log(err);
     throw err;
   }

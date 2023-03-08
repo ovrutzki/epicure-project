@@ -53,7 +53,7 @@ const SignIn: React.FC = () => {
     email: string,
     password: string
   ) => {
-    await fetch("http://localhost:8000/api/users", {
+    await fetch("http://localhost:8000/api/users/register", {
       method: "POST",
       body: JSON.stringify({
         "first": first,
@@ -64,25 +64,14 @@ const SignIn: React.FC = () => {
         "password": password
       }),
       headers: {
-        "Content-type": "application/json",
+        "Content-type": "application/json; charset=UTF-8",
       },
     })
       .then((response) => response.json())
       .catch((err) => {
-        console.log(err.message);
+       alert(err.message);
       });
   };
-  useEffect(() => {
-    fetch("http://localhost:8000/api/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setTest(data);
-        console.log(test);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
 
   const handleRegister = (e: any) => {
     e.preventDefault();
