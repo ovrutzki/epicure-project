@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import epiqureReducer from "../slicer/epicureSlicer";
 import restaurantsReducer from "../slicer/restaurantSlicer";
 import chefsReducer from "../slicer/chefsSlicer";
 import dishesReducer from "../slicer/dishesSlicer";
@@ -51,7 +50,8 @@ export interface IChefState {
 export interface IDishState {
   default:  IDishes[];
   value: IDishes[];
-  specificDishes:IDishes[] | undefined
+  specificDishes:IDishes[] | undefined;
+  allDishes: IDishes[];
 }
 export interface IOrderState{
   dishId?:number
@@ -79,7 +79,6 @@ export interface IRootState{
 
 export default configureStore({
   reducer: {
-    epicure: epiqureReducer,
     restaurants: restaurantsReducer,
     chefs: chefsReducer,
     dishes: dishesReducer,

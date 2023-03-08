@@ -1,11 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../epicure.json";
-import { IOrder, IOrderState } from "../store/store";
+import { IDishes, IOrder, IOrderState } from "../store/store";
+
+let dishes:IDishes[] = [];
+const fetchDishesData = () => {
+  const response = fetch("http://localhost:8000/api/dishes")
+  .then((response) => {
+    return response.json()
+  })
+  .catch((err) => console.log(err));
+  return response;
+}
+
+dishes = await fetchDishesData()
 
 export const orderSlicer = createSlice({
   name: "order",
   initialState: {
-    allDishes: data.dishes,
+    allDishes: dishes,
     value: [],
     checkoutPrice:0,
   },
@@ -13,7 +24,6 @@ export const orderSlicer = createSlice({
     addToCart:(state:IOrder,action) => {
         if(state.value.every((dish:IOrderState) => dish.restaurantId === action.payload.restaurantId)){
             state.value = [...state.value, action.payload]
-            console.log(state.value)
             state.checkoutPrice += action.payload.totalPrice
         } else {
             alert("we can`t do order from more then 0ne restaurant")

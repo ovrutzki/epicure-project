@@ -4,7 +4,7 @@ import { ICard } from "../../interFaces/interFaces";
 import Card from "../Card/Card";
 import { useNavigate } from "react-router-dom";
 
-const Popular: React.FC<any> = (props) => {
+const Popular: React.FC<any> = (props:any) => {
   const navigate = useNavigate();
   const kind: ICard[] = props.kind;
   const [popular, setPopular] = useState<ICard[] | []>([]);
@@ -15,12 +15,11 @@ const Popular: React.FC<any> = (props) => {
       .slice(0, 3);
     setPopular(popularRestaurant);
   }, []);
-
+ 
   return (
     <>
       <div className="popular">
         <h1>{props.header}</h1>
-
         <div className="three-div">
           {popular.map((card: ICard, index: number) => (
             <Card

@@ -1,11 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../epicure.json";
+import { useState } from "react";
+import { IRestaurants } from "../store/store";
+
+let restaurants:IRestaurants[] = [];
+const fetchRestaurantsData = () => {
+  const response = fetch("http://localhost:8000/api/restaurants")
+  .then((response) => {
+    return response.json()
+  })
+  .catch((err) => console.log(err));
+  return response;
+}
+
+restaurants = await fetchRestaurantsData()
 
 export const restaurantSlice = createSlice({
   name: "restaurants",
   initialState: {
-    value: data.restaurant,
-    default: data.restaurant
+    value: restaurants,
+    default: restaurants
   },
   reducers: {
     mainFilter: (state, action) => {
@@ -58,15 +71,7 @@ export const restaurantSlice = createSlice({
 
 
     }
-    // priceFilter: (state,action):void =>{
-    //   for (let i = 0; i < state.default.length; i++) {
-    //     let sum = 0;
-    //     let rest = data.dishes.filter((dish) => dish.restaurantId === i + 1 )
-    //     let price = rest.reduce((accumulator, cornett) => accumulator + cornett.price , sum)
-    //     let avrg = price / rest.length
-    //     if()
-    //   }
-    //  }
+
   },
 });
 

@@ -1,6 +1,5 @@
 import React from "react";
 import "./RenderChefs.css";
-import data from "../../../epicure.json";
 import { IChefCard } from "../../../interFaces/interFaces";
 import {useSelector} from "react-redux"
 import { IRootState } from "../../../store/store/store";

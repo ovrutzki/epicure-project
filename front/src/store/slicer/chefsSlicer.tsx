@@ -1,10 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../epicure.json";
+import { IChefs } from "../store/store";
+
+let chefs:IChefs[] = [];
+const fetchChefsData = () => {
+  const response = fetch("http://localhost:8000/api/chefs")
+  .then((response) => {
+    return response.json()
+  })
+  .catch((err) => console.log(err));
+  return response;
+}
+
+chefs = await fetchChefsData()
 
 export const chefsSlicer = createSlice({
   name: "chefs",
   initialState: {
-    value: data.chefs,
+    value: chefs,
   },
   reducers: {},
 });

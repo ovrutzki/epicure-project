@@ -1,17 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { stat } from "fs";
 import { useSelector } from "react-redux";
-import data from "../../epicure.json";
-import { IRootState } from "../store/store";
+import { IDishes, IRestaurants, IRootState } from "../store/store";
 import { restaurantSlice } from "./restaurantSlicer";
+
+let dishes:IDishes[] = [];
+const fetchDishesData = () => {
+  const response = fetch("http://localhost:8000/api/dishes")
+  .then((response) => {
+    return response.json()
+  })
+  .catch((err) => console.log(err));
+  return response;
+}
+
+dishes = await fetchDishesData()
+
+let restaurants:IRestaurants[] = [];
+const fetchRestaurantsData = () => {
+  const response = fetch("http://localhost:8000/api/restaurants")
+  .then((response) => {
+    return response.json()
+  })
+  .catch((err) => console.log(err));
+  return response;
+}
+
+restaurants = await fetchRestaurantsData()
 
 export const dishesSlicer = createSlice({
   name: "dishes",
   initialState: {
-    value: data.dishes,
-    allDishes : data.dishes,
-    specificDishes: data.dishes,
-    restaurants: data.restaurant
+    value: dishes,
+    allDishes : dishes,
+    specificDishes: dishes,
+    restaurants: restaurants
   },
   reducers: {
     getDishesByRestId: (state,action) => {

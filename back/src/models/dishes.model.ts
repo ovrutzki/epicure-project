@@ -32,4 +32,4 @@ export const dishSchema = new Schema<IDish>({
     
 })
 
-export const DishesModal = mongoose.model<IDish>("chefs", dishSchema);
+export const DishesModal = mongoose.model<IDish>("dishes", dishSchema);
