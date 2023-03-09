@@ -64,12 +64,12 @@ const SignIn: React.FC = () => {
         "password": password
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8",
+        "Content-type": "application/json",
       },
     })
       .then((response) => response.json())
       .catch((err) => {
-       alert(err.message);
+       console.log(err.message);
       });
   };
 
