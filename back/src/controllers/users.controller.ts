@@ -64,7 +64,6 @@ export const getAllUsers = async (req: Request, res: Response) => {
       const password = req.body.password
       try {
         // findUser = 
-        
       } catch (error) {
         
       }
