@@ -3,8 +3,9 @@ import chefRouter from "./chefs.routes";
 import dishRouter from "./dishes.routes";
 import restaurantRouter from "./restaurant.routes";
 import userRouter from "./users.routes";
+import mongoose from "mongoose";
 
-
+const NAMESPACE = "Server";
 const router = express.Router();
 
 router.use("/api/chefs/", chefRouter);
