@@ -5,10 +5,10 @@ import config from "../config/config";
 const NAMESPACE = "auth";
 
  const extractJWT  = async (req: Request, res: Response, next: NextFunction) => {
-    console.info(NAMESPACE, 'validated token.');
-
-    let token = req.headers.authorization?.split(' ')[1];
-
+     console.info(NAMESPACE, 'validated token.');
+     
+     let token = req.headers.authorization?.split(' ')[1];
+    console.log(" token",token)
     if (token){
         JWT.verify(token, config.server.token.secret, (error, decoded) =>{
             if(error){
@@ -23,8 +23,7 @@ const NAMESPACE = "auth";
         })
     } else {
         return res.status(401).json({
-            message:'Unauthorized12',
-            token: token
+            message:'Unauthorized'
         });
     }
 }

@@ -79,7 +79,7 @@ export const loginUser = async (req: Request, res: Response) => {
     
     if (!user) {
       return res.status(401).json({
-        message: "Unauthorized1",
+        message: "Unauthorized",
       });
     } else {
       bcrypt.compare(password, user.password, (error, result) => {
@@ -87,13 +87,13 @@ export const loginUser = async (req: Request, res: Response) => {
           logging.error(NAMESPACE, error.message, error);
 
           return res.status(401).json({
-            message: "Unauthorized2",
+            message: "Unauthorized",
           });
         } else if (result) {
           signJWT(user, (_error, token) => {
             if (error) {
               return res.status(401).json({
-                message: "Unauthorized3",
+                message: "Unauthorized",
                 error: _error,
               });
             } else if (token) {
