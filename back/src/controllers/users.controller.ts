@@ -37,7 +37,6 @@ export const newUser = async (req: Request, res: Response) => {
   const email = req.body.email;
   const password = req.body.password;
   const allUsers: IUser[] = await getUsers();
-  console.log("test ", req.body);
   try {
     if (!(first && last && address && phone && email && password)) {
       res.status(400).send("All inputs are require");
@@ -75,23 +74,21 @@ export const loginUser = async (req: Request, res: Response) => {
   const password = req.body.password;
   try {
     const user = await UserModel.findOne({ email: email });
-    console.log("hello " ,user);
     
     if (!user) {
       return res.status(401).json({
         message: "Unauthorized",
       });
     } else {
-      bcrypt.compare(password, user.password, (error, result) => {
-        if (error) {
-          logging.error(NAMESPACE, error.message, error);
-
+     const compare =  await bcrypt.compare(password, user.password);
+      
+        if (!compare) {
           return res.status(401).json({
             message: "Unauthorized",
           });
-        } else if (result) {
+        } else if (compare) {
           signJWT(user, (_error, token) => {
-            if (error) {
+            if (_error) {
               return res.status(401).json({
                 message: "Unauthorized",
                 error: _error,
@@ -105,12 +102,13 @@ export const loginUser = async (req: Request, res: Response) => {
             }
           });
         }
-      });
-    }
+      };
+    
   } catch (error: any) {
     return res.status(500).json({
       message: error.message,
       error
     });
   }
-};
+}
+

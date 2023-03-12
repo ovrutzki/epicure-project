@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { IRootState } from "../../store/store/store";
 
 const Home: React.FC=()=>{
+
     const restaurantsArray = useSelector(
         (state:IRootState) => state.restaurants.default
       );

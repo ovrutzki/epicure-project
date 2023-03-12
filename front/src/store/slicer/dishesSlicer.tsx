@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stat } from "fs";
 import { useSelector } from "react-redux";
 import { IDishes, IRestaurants, IRootState } from "../store/store";
 import { restaurantSlice } from "./restaurantSlicer";

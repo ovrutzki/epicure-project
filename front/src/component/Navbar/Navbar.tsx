@@ -16,7 +16,9 @@ const Navbar: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false)
   const amountInCart = useSelector(
     (state: IRootState) => state.order.value.length
-  );
+    );
+    const userSelector = useSelector((state: IRootState) => state.user.value);
+    const [userName, setUserName] = useState<string | undefined>("Guest")
   // close the cart pop up
   let cartRef = useRef<HTMLElement>();
   let cartButtonRef: any = useRef();
@@ -38,13 +40,16 @@ const Navbar: React.FC = () => {
 
   //mobile nav bar
   const hamburgerIcon = <IoMdMenu onClick={() => setOpenMenu(!openMenu)} className="hamburger" size='40px' />
-  const closeIcone = <AiOutlineClose onClick={() => setOpenMenu(!openMenu)} className="hamburger" size='30px' />
+  const closeIcon = <AiOutlineClose onClick={() => setOpenMenu(!openMenu)} className="hamburger" size='30px' />
 
+  useEffect(() =>{
+    setUserName(userSelector?.first);
+  },[userName])
 
   return (
     <>
       <nav>
-        {openMenu ? closeIcone : hamburgerIcon }
+        {openMenu ? closeIcon : hamburgerIcon }
         {openMenu && <MobileMenu />}
         <button className="symbol" onClick={() => navigate("/")}>
             <img src="/image/logo.svg" alt="" />
@@ -72,6 +77,7 @@ const Navbar: React.FC = () => {
           </NavLink>
         </div>
         <div id="right-nav">
+          <div>Hello {userName ? userName : "Guest"}</div>
           <div id="search">
             <input type="text" placeholder="Search for restaurant, Chefs" />
           </div>
