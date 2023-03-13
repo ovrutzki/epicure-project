@@ -68,7 +68,11 @@
     letter-spacing: 2.67px;
   }
   #black-style{
+    cursor: pointer;
       background-color: black;
+  }
+  .login-btn:hover{
+    cursor: no-drop;
   }
   #login-details p {
     cursor: pointer;

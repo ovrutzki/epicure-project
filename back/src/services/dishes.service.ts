@@ -9,3 +9,14 @@ export const getDishes = async () => {
       throw err;
     }
   };
+
+  export const removeRestaurantDishes = async (restId:any) => {
+    const idInteger = restId.restaurantId
+    try {
+      await DishesModal.deleteMany({restaurantId: idInteger});
+      return DishesModal.find();
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };

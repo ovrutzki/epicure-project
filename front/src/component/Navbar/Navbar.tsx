@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   const amountInCart = useSelector(
     (state: IRootState) => state.order.value.length
     );
-    const userSelector = useSelector((state: IRootState) => state.user.value);
+    const userSelector = useSelector((state: IRootState) => state.user.userInfo);
     const [userName, setUserName] = useState<string | undefined>("Guest")
   // close the cart pop up
   let cartRef = useRef<HTMLElement>();

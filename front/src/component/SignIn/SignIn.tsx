@@ -1,22 +1,21 @@
+import axios from "axios";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import "./SignIn.css";
 
 const SignIn: React.FC = () => {
-  const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const [firstName, setFirstName]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const [lastName, setLastName]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const [address, setAddress]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
+  const navigate = useNavigate();
+  const [greeting, setGreeting] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
   const [phone, setPhone] = useState<string>();
   const [password, setPassword]: any = useState("");
-  const [black, setBlack]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
-  const [test, setTest] = useState();
+  const [black, setBlack] = useState<string>("");
+
   const emailOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
@@ -37,14 +36,6 @@ const SignIn: React.FC = () => {
       setBlack("");
     }
   }, [email, password, firstName, lastName, address, phone]);
-  // let newUser = {
-  //   first: firstName,
-  //   last: lastName,
-  //   address: address,
-  //   phone: phone,
-  //   email: email,
-  //   password: password,
-  // };
   const registerUser = async (
     first: string,
     last: string,
@@ -53,89 +44,108 @@ const SignIn: React.FC = () => {
     email: string,
     password: string
   ) => {
-    await fetch("http://localhost:8000/api/users/register", {
-      method: "POST",
-      body: JSON.stringify({
-        "first": first,
-        "last": last,
-        "address": address,
-        "phone": phone,
-        "email": email,
-        "password": password
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .catch((err) => {
-       alert(err.message);
-      });
+    try {
+      const userRegisterData = await axios.post(
+        "http://localhost:8000/api/users/register",
+        {
+          first: first,
+          last: last,
+          address: address,
+          phone: phone,
+          email: email,
+          password: password,
+        }
+      );
+      successfullyRegister()
+    } catch (err: any) {
+      if (err.response.status === 400) {
+        console.log(err.response.data);
+        alert(err.response.data);
+      } else if (err.response.status === 409){
+        console.log(err.response.data);
+        alert(err.response.data);
+        navigate("/log-in");
+      }
+    }
   };
 
-  const handleRegister = (e: any) => {
+  const handleRegister = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    registerUser(firstName, lastName,address, phone, email, password);
+    registerUser(firstName, lastName, address, phone, email, password);
   };
 
+  const navigateFunction = () => {
+    navigate("/log-in");
+    setGreeting(false);
+  };
+  const successfullyRegister = () => {
+    setGreeting(true);
+    setTimeout(navigateFunction, 3000);
+  };
   return (
     <>
       <Navbar />
+      
       <div id="sign-container">
         <div id="sign-main">
-          <div id="sign-title">
-            <h1>Sign in</h1>
-            <h2>Please enter your details</h2>
-          </div>
-          <form id="sign-details" action="">
-            <label htmlFor="">First Name</label>
-            <input
-              onChange={(e) => setFirstName(e.target.value)}
-              type="text"
-              name="first-name"
-              placeholder="Enter Your First Name"
-            />
-            <label htmlFor="">Last Name</label>
-            <input
-              onChange={(e) => setLastName(e.target.value)}
-              type="text"
-              name="last-name"
-              placeholder="Enter Your Last Name"
-            />
-            <label htmlFor="">Address</label>
-            <input
-              onChange={(e) => setAddress(e.target.value)}
-              type="text"
-              name="Address"
-              placeholder="Enter Your Address"
-            />
-            <label htmlFor="">Phone</label>
-            <input
-              onChange={(e) => setPhone(e.target.value)}
-              type="text"
-              name="phone"
-              placeholder="Enter Your Phone Number"
-            />
-            <label htmlFor="">Email</label>
-            <input
-              onChange={emailOnChange}
-              type="text"
-              name="email"
-              placeholder="Email address"
-            />
-            <label htmlFor="">Password</label>
-            <input
-              onChange={passwordOnChange}
-              type="password"
-              name="password"
-              placeholder="Password"
-            />
-          </form>
-          <button onClick={handleRegister} id={black} className="sign-in-btn">
-            SIGN UP
-          </button>
-          <section></section>
+        {greeting ? <h1>hello {firstName}, Please log-in now</h1> : 
+        <>
+        <div id="sign-title">
+          <h1>Sign in</h1>
+          <h2>Please enter your details</h2>
         </div>
+        <form id="sign-details" action="">
+          <label htmlFor="">First Name</label>
+          <input
+            onChange={(e) => setFirstName(e.target.value)}
+            type="text"
+            name="first-name"
+            placeholder="Enter Your First Name"
+          />
+          <label htmlFor="">Last Name</label>
+          <input
+            onChange={(e) => setLastName(e.target.value)}
+            type="text"
+            name="last-name"
+            placeholder="Enter Your Last Name"
+          />
+          <label htmlFor="">Address</label>
+          <input
+            onChange={(e) => setAddress(e.target.value)}
+            type="text"
+            name="Address"
+            placeholder="Enter Your Address"
+          />
+          <label htmlFor="">Phone</label>
+          <input
+            onChange={(e) => setPhone(e.target.value)}
+            type="text"
+            name="phone"
+            placeholder="Enter Your Phone Number"
+          />
+          <label htmlFor="">Email</label>
+          <input
+            onChange={emailOnChange}
+            type="text"
+            name="email"
+            placeholder="Email address"
+          />
+          <label htmlFor="">Password</label>
+          <input
+            onChange={passwordOnChange}
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+        </form>
+        <button onClick={handleRegister} id={black} className="sign-in-btn">
+          SIGN UP
+        </button>
+        <section></section>
+        </>
+        }
+        
+      </div>
       </div>
       <Footer />
     </>

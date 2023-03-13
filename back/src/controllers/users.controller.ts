@@ -16,7 +16,7 @@ export const validateToken = async (
 
   return res.status(200).json({
     message: "Authorized",
-  }); 
+  });
 };
 
 export const getAllUsers = async (req: Request, res: Response) => {
@@ -61,7 +61,6 @@ export const newUser = async (req: Request, res: Response) => {
     return res.status(200).json({
       status: 201,
       data: user,
-      // first: user.first,
       message: "Successfully Create User",
     });
   } catch (err) {
@@ -74,41 +73,40 @@ export const loginUser = async (req: Request, res: Response) => {
   const password = req.body.password;
   try {
     const user = await UserModel.findOne({ email: email });
-    
+    const userToReturn = await UserModel.findOne({ email: email }).select('-password');
+
     if (!user) {
       return res.status(401).json({
         message: "Unauthorized",
       });
     } else {
-     const compare =  await bcrypt.compare(password, user.password);
-      
-        if (!compare) {
-          return res.status(401).json({
-            message: "Unauthorized",
-          });
-        } else if (compare) {
-          signJWT(user, (_error, token) => {
-            if (_error) {
-              return res.status(401).json({
-                message: "Unauthorized",
-                error: _error,
-              });
-            } else if (token) {
-              return res.status(200).json({
-                message: "Auth successful",
-                token,
-                user: user,
-              });
-            }
-          });
-        }
-      };
-    
+      const compare = await bcrypt.compare(password, user.password);
+
+      if (!compare) {
+        return res.status(401).json({
+          message: "Unauthorized",
+        });
+      } else if (compare) {
+        signJWT(user, (_error, token) => {
+          if (_error) {
+            return res.status(401).json({
+              message: "Unauthorized",
+              error: _error,
+            });
+          } else if (token) {
+            return res.status(200).json({
+              message: "Auth successful",
+              token,
+              user: userToReturn,
+            });
+          }
+        });
+      }
+    }
   } catch (error: any) {
     return res.status(500).json({
       message: error.message,
-      error
+      error,
     });
   }
-}
-
+};

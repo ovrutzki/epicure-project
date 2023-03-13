@@ -1,8 +1,9 @@
 import express, { Request, Response } from "express";
-import { getAllRestaurants } from "../controllers/restaurants.controller";
+import { getAllRestaurants, deleteRestaurant } from "../controllers/restaurants.controller";
 
 const restaurantRouter = express.Router();
 
 restaurantRouter.get("/",getAllRestaurants );
+restaurantRouter.delete("/",deleteRestaurant );
 
 export default restaurantRouter

@@ -6,6 +6,7 @@ import orderReducer from "../slicer/orderSlicer";
 import userReducer from "../slicer/userSlicre";
 
 export interface IRestaurants{
+  _id:any;
   id:number;
   name:string;
   address:number[];
@@ -78,8 +79,18 @@ export interface IUser{
   phone?:string;
   address?:string;
 }
+export interface IUserNoPassword{
+  email:string;
+  first?:string;
+  last?:string;
+  phone?:string;
+  address?:string;
+}
+
 export interface IUserState{
   value:IUser;
+  userInfo:IUserNoPassword;
+  token:string;
 }
 
 export interface IRootState{
