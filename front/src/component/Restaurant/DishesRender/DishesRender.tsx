@@ -29,16 +29,17 @@ const DishesRender: React.FC<IRestId> = (props: IRestId) => {
   const [dishId, setDishId]= useState<number>()
   
   let dishModalRef:any = useRef()
+  let deleteBtnRef:any = useRef()
     useEffect(()=>{
         let handler = (event:any) =>{
-            if(!dishModalRef?.current?.contains(event.target)){
+            if(!dishModalRef?.current?.contains(event.target) && !deleteBtnRef?.current?.contains(event.target)){
               setIsOpen(false)
             }
         }
-        document.addEventListener("mousedown",handler)
+        document.addEventListener("mousedown",handler);
 
         return () => {
-          document.removeEventListener("mousedown",handler)
+          document.removeEventListener("mousedown",handler);
         }
     })
 
@@ -83,7 +84,7 @@ const DishesRender: React.FC<IRestId> = (props: IRestId) => {
           
           ))}
       </div>
-          {isOpen && <DishModal refProps={dishModalRef} onClose={openModal} open={isOpen} id={dishId} restaurantId={props.restId}/>}
+          {isOpen && <DishModal btnRefProps={deleteBtnRef} refProps={dishModalRef} onClose={openModal} open={isOpen} id={dishId} restaurantId={props.restId}/>}
     </>
   );
 };

@@ -34,9 +34,11 @@ const Filter: React.FC<any> = (props: any) => {
           {btnNames.map((btn, index:number)=>(
             props.toRender ?
            (index<5) && <FilterButtons
+              key={index*200}
               name={btn}
               onClick={filterEvent}
             /> : (index != 2 && index != 3 && index != 4) &&  <FilterButtons
+            key={index*300}
             name={btn}
             onClick={filterEvent}
           />

@@ -46,5 +46,6 @@ export interface IModal{
   onClose?:any;
   restaurantId?:number | undefined;
   refProps?:any;
+  btnRefProps?:any;
   restaurantName?:string;
 }

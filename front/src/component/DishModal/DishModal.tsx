@@ -136,7 +136,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </button>
           </div>
         </div>
-        <button ref={props.refProps} onClick={handelDelete} id="delete-dish-btn"> Delete this Dish</button>
+        <button ref={props.btnRefProps} onClick={handelDelete} id="delete-dish-btn"> Delete this Dish</button>
       </div>
     </>
   );

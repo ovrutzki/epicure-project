@@ -2,7 +2,6 @@ import { IUser, UserModel } from "../models/users.model";
 import { Request, Response } from "express";
 
 export const getUsers = async () => {
-
    const allUsers = await UserModel.find()
     .select('-password')
     .exec()

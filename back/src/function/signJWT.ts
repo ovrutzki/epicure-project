@@ -11,8 +11,7 @@ const signJWT = (
   callback: (error: Error | null, token: string | null) => void
 ): void => {
   let timeSinchEpoch = new Date().getTime();
-  let expirationTime =
-    timeSinchEpoch + Number(config.server.token.expireTime) * 100000;
+  let expirationTime =timeSinchEpoch + Number(config.server.token.expireTime) * 100000;
   let expirationTimeInSec = Math.floor(expirationTime / 1000);
 
   logging.info(NAMESPACE, `attempt to sign token for ${user.email}`);
