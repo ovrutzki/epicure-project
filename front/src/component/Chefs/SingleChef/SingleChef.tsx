@@ -11,8 +11,8 @@ import { ICard, IChefCard } from "../../../interFaces/interFaces";
 const SingleChef:  React.FC<IChefCard> = (props) => {
     const chefArray = useSelector((state: IRootState) => state.chefs.value)
     const restArray = useSelector((state: IRootState) => state.restaurants.value)
-    let { chefName } = useParams();
-    let chefIndex = chefArray.findIndex((chef: IChefCard) => chef.name === chefName);
+    let { chefId } = useParams();
+    let chefIndex = chefArray.findIndex((chef: IChefCard) => chef.id === Number(chefId));
     const specificChef = chefArray[chefIndex];
     const chefRestaurants = [];
     for (let i = 0; i < restArray.length; i++){
@@ -44,7 +44,7 @@ const SingleChef:  React.FC<IChefCard> = (props) => {
                   id={rest.id}
                   rating={rest.rating}
                   chef={rest.chef}
-                  navigatePath={`/restaurant/${rest.name}`}
+                  navigatePath={`/restaurant/${rest.id}`}
                   />
                 </>
             ))}

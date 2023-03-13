@@ -15,9 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="restaurant/:restName" element={<SingleRest />} />
+        <Route path="restaurant/:restId" element={<SingleRest />} />
         <Route path="/chefs" element={<Chefs />} />
-        <Route path="chefs/:chefName" element={<SingleChef />} />
+        <Route path="chefs/:chefId" element={<SingleChef />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="/sign-in" element={<SignIn />} />
       </Routes>

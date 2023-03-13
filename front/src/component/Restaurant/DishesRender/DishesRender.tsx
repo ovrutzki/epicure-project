@@ -12,12 +12,11 @@ import {
 } from "../../../store/slicer/dishesSlicer";
 import DishModal from "../../DishModal/DishModal";
 
-export interface IRestName {
-  sortFilter?: string;
-  restName?: string;
+export interface IRestId {
+  restId?: number;
 }
 
-const DishesRender: React.FC<IRestName> = (props: IRestName) => {
+const DishesRender: React.FC<IRestId> = (props: IRestId) => {
   const specificDishes = useSelector(
     (state: IRootState) => state.dishes.specificDishes
   );
@@ -27,7 +26,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
   const [filter, setFilter] = useState("");
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false)
-  const [dishId, setDishId]:[number | undefined,Dispatch<SetStateAction<number | undefined>>] = useState()
+  const [dishId, setDishId]= useState<number>()
   
   let dishModalRef:any = useRef()
     useEffect(()=>{
@@ -44,7 +43,7 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
     })
 
   useEffect(() => {
-    dispatch(getDishesByRestId(props.restName));
+    dispatch(getDishesByRestId(props.restId));
   }, []);
 
   useEffect(() => {
@@ -70,10 +69,9 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
       </div>
       <div className="dish-div" >
         {filteredDishes?.map((dish: ICard, index: number) => (
-          <>
           <Card
             class = "card dish-render dish"
-            key={index}
+            key={index*100}
             name={dish.name}
             img={dish.img}
             icons={dish.icons}
@@ -82,10 +80,10 @@ const DishesRender: React.FC<IRestName> = (props: IRestName) => {
             onClick = {() => openModal(dish.id)}
             id={dish.id}
             />
-          </>
+          
           ))}
       </div>
-          {isOpen && <DishModal refProps={dishModalRef} onClose={openModal} open={isOpen} id={dishId} restaurantName={props.restName}/>}
+          {isOpen && <DishModal refProps={dishModalRef} onClose={openModal} open={isOpen} id={dishId} restaurantId={props.restId}/>}
     </>
   );
 };

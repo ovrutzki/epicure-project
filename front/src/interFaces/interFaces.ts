@@ -12,6 +12,7 @@ export interface ICard {
   onClick?:any;
 }
 export interface IChefCard {
+  id?:number;
   img?: string;
   name?: string;
   navigatePath?:string;
@@ -40,9 +41,10 @@ export interface IRenderRest {
 }
 
 export interface IModal{
-  id?:number
-  open?:boolean
-  onClose?:any
-  restaurantName?:string | undefined
-  refProps?:any
+  id?:number;
+  open?:boolean;
+  onClose?:any;
+  restaurantId?:number | undefined;
+  refProps?:any;
+  restaurantName?:string;
 }

@@ -17,7 +17,7 @@ const ChefCard: React.FC = () => {
     <>
       <div  id="main-chef">
         {chefsArray.map((chef: IChefCard, index: number) => (
-          <section id="chef-section" onClick={() => onCardClick(chef.name)}>
+          <section id="chef-section" onClick={() => onCardClick(`${chef.id}`)}>
             <img src={chef.img} key={index} alt={chef.name} />
             <h1>{chef.name}</h1>
           </section>

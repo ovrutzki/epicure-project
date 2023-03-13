@@ -156,12 +156,27 @@ label {
   box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5),
     0px 1px 0px rgba(255, 255, 255, 0.2);
 }
-#quantity button{
+#quantity button {
   width: 25px;
   height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#delete-dish-btn {
+  position: absolute;
+  margin-top: 5px;
+  font-family: Helvetica light;
+  font-weight: bold;
+  transform: translate(50%);
+  right: 50%;
+  bottom: 10px;
+  width: 8.7vw;
+  color: white;
+  background-color: black;
+}
+#delete-dish-btn:hover {
+  background-color: darkred;
 }
 
 @media screen and (max-width: 450px) {
@@ -184,7 +199,7 @@ label {
     align-self: self-start;
     margin-left: 10px;
   }
-  #modal .food{
+  #modal .food {
     width: 100%;
     height: 64vw;
   }
@@ -208,36 +223,35 @@ label {
     height: fit-content;
     margin-bottom: 3vw;
   }
-  #modal .icon{
+  #modal .icon {
     display: none;
   }
-  #modal .price-div{
+  #modal .price-div {
     display: none;
   }
-  #modal-bottom{
+  #modal-bottom {
     align-items: flex-start;
     gap: 5vw;
     width: 90%;
     padding: 0 4vw;
     height: fit-content;
   }
-  #modal-bottom h1{
+  #modal-bottom h1 {
     font-size: 5vw;
     line-height: 6vw;
-    
   }
   #modal label {
     font-size: 5vw;
   }
-  #modal form{
+  #modal form {
     gap: 5vw;
   }
-  #quantity p{
+  #quantity p {
     font-size: 5vw;
   }
   #cart-btn {
-    height:13vw;
-    width:55vw ;
+    height: 13vw;
+    width: 55vw;
     font-size: 6vw;
     font-family: "Helvetica light";
     font-weight: bold;

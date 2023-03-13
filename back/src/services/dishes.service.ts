@@ -20,3 +20,13 @@ export const getDishes = async () => {
       throw err;
     }
   };
+
+  export const removeDish = async (dishId: number) => {
+    console.log(dishId);
+    try {
+      await DishesModal.findByIdAndDelete(dishId);
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };

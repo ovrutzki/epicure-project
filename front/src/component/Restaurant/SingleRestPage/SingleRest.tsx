@@ -2,7 +2,7 @@ import React from "react";
 import "./SingleRest.css";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { IRootState } from "../../../store/store/store";
+import { IRestaurants, IRootState } from "../../../store/store/store";
 import Card from "../../Card/Card";
 import DishesRender from "../DishesRender/DishesRender";
 import Navbar from "../../Navbar/Navbar";
@@ -12,9 +12,9 @@ import axios from "axios";
 const SingleRest: React.FC<any> = (props) => {
   const navigate = useNavigate();
 
-  let { restName } = useParams();
+  let { restId } = useParams();
   const restArray = useSelector((state: IRootState) => state.restaurants.value);
-  let restIndex = restArray.findIndex((e: any) => e.name === restName);
+  let restIndex = restArray.findIndex((e:IRestaurants) => e.id === Number(restId));
   let d = new Date();
   const specificRest = restArray[restIndex];
 
@@ -60,7 +60,7 @@ const SingleRest: React.FC<any> = (props) => {
     deleteRestaurant(specificRest._id);
     setTimeout(afterDelete, 3000);
   }
-
+  
   return (
     <>
       <Navbar />
@@ -86,7 +86,7 @@ const SingleRest: React.FC<any> = (props) => {
             <img className="open-now" src="/image/icons/open now.svg" />
           </div>
         ) : null}
-        <DishesRender restName={restName} />
+        <DishesRender restId={Number(restId)}/>
       </div>
       <Footer />
     </>

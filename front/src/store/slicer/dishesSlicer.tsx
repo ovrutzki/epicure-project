@@ -37,7 +37,7 @@ export const dishesSlicer = createSlice({
   },
   reducers: {
     getDishesByRestId: (state,action) => {
-      state.specificDishes = state.allDishes.filter((dish) => dish.restaurantId === state.restaurants.find((rest) => rest.name === action.payload)?.id)
+      state.specificDishes = state.allDishes.filter((dish) => dish.restaurantId === state.restaurants.find((rest) => rest.id === action.payload)?.id)
     },
 
     dishTimeFilter: (state,action) => {

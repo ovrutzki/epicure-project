@@ -83,6 +83,9 @@
   .open-now{
     height: 5vw;
   }
+  #delete-rest-btn{
+    display: none;
+  }
 }
 
 

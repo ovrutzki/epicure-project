@@ -20,6 +20,7 @@ export interface IRestaurants{
   rating:string
 }
 export interface IChefs{
+  _id:any;
   id:number;
   name:string;
   restaurant:number[];
@@ -29,6 +30,7 @@ export interface IChefs{
   about:string;
 }
 export interface IDishes{
+  _id:any;
   id:number;
   name:string;
   restaurantId:number;
@@ -43,7 +45,7 @@ export interface IDishes{
   img:string;
 }
 export interface IRestState {
-  default: IRestaurants;
+  default: IRestaurants[];
   value: IRestaurants[]
 }
 export interface IChefState {
@@ -56,6 +58,7 @@ export interface IDishState {
   allDishes: IDishes[];
 }
 export interface IOrderState{
+  dbId:any;
   dishId?:number
   restaurantId?:number;
   price?:number;

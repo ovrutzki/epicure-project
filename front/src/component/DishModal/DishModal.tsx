@@ -5,6 +5,7 @@ import { IModal } from "../../interFaces/interFaces";
 import { useDispatch, useSelector } from "react-redux";
 import {  IOrderState, IRootState } from "../../store/store/store";
 import { addToCart } from "../../store/slicer/orderSlicer";
+import axios from "axios";
 
 const DishModal: React.FC<IModal> = (props: IModal) => {
   const clickedDish = useSelector((state: IRootState) =>
@@ -36,6 +37,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
   // const [userDishForCart, setUserDishForCart] = useState()
 
   const userDishForCart: IOrderState = {
+    dbId: clickedDish?._id,
     dishId: clickedDish?.id,
     restaurantId: clickedDish?.restaurantId,
     price: clickedDish?.price,
@@ -50,6 +52,28 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
     dispatch(addToCart(userDishForCart));
     props.onClose();
   };
+
+  const deleteDish = async (id: number) => {
+    try {
+      const deleteItem = await axios.delete(
+        "http://localhost:8000/api/dishes/oneDish",
+        {
+          data: {
+            _id: id,
+          },
+        }
+      );
+        alert("Dish deleted")
+    } catch (error: any) {
+      alert(error.message);
+      console.log(error);
+    }
+  };
+
+  const handelDelete = () =>{
+    deleteDish(clickedDish?._id);
+    window.location.reload()
+  }
 
   return (
     <>
@@ -112,6 +136,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </button>
           </div>
         </div>
+        <button ref={props.refProps} onClick={handelDelete} id="delete-dish-btn"> Delete this Dish</button>
       </div>
     </>
   );
