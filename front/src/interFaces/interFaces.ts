@@ -19,6 +19,7 @@ export interface IChefCard {
   about?:string;
   restaurants?:number[];
   onClick?:any;
+  age?:number
 }
 
 export interface IPopular {
@@ -49,3 +50,4 @@ export interface IModal{
   btnRefProps?:any;
   restaurantName?:string;
 }
+

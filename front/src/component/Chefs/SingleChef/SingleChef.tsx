@@ -210,7 +210,7 @@ const SingleChef: React.FC<IChefCard> = (props) => {
                   //   onChange={(e) => setPhone(e.target.value)}
                   type="text"
                   name="days"
-                  placeholder="Sunday = 0, Saturday  = 6 with coma"
+                  placeholder="Sunday=0, Saturday=6 with coma"
                 />
                 <label htmlFor="">Open Years</label>
                 <input
