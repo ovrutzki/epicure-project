@@ -1,4 +1,4 @@
-import { RestaurantsModal } from "../models/restaurants.model";
+import { IRestaurant, RestaurantsModal } from "../models/restaurants.model";
 
 export const getRestaurants = async () => {
   try {
@@ -13,6 +13,17 @@ export const getRestaurants = async () => {
 export const removeRestaurant = async (restId: number) => {
   try {
     await RestaurantsModal.findByIdAndDelete(restId);
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
+export const restaurantToAdd = async (newRest: IRestaurant) => {
+  try {
+    const _newRest = new RestaurantsModal(newRest);
+    await _newRest.save();
+    return _newRest;
   } catch (err) {
     console.log(err);
     throw err;

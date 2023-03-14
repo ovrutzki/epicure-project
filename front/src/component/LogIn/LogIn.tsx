@@ -25,8 +25,7 @@ const LogIn: React.FC = () => {
   const [greeting, setGreeting] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string | undefined>("");
 
-  const [black, setBlack]: [string, Dispatch<SetStateAction<string>>] =
-    useState("");
+  const [black, setBlack] = useState<string>("");
   const emailOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };

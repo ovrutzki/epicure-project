@@ -17,8 +17,8 @@ const RenderChefs: React.FC = () => {
     <>
       <div  id="main-chef">
         {chefsArray.map((chef: IChefCard, index: number) => (
-          <section id="chef-section">
-            <img src={chef.img} key={index} alt={chef.name} />
+          <section id="chef-section" key={index*500}>
+            <img src={chef.img}  alt={chef.name} />
             <h1>{chef.name}</h1>
           </section>
         ))}

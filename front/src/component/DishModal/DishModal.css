@@ -116,6 +116,8 @@
 }
 label {
   cursor: pointer;
+  font-family:Helvetica light;
+  font-weight: bold;
 }
 
 .radio {

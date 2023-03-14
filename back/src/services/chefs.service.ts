@@ -9,3 +9,12 @@ export const getChefs = async () => {
       throw err;
     }
   };
+  
+  export const removeChef = async (chefId: number) => {
+    try {
+      await ChefsModal.findByIdAndDelete(chefId);
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
