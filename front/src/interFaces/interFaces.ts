@@ -12,6 +12,7 @@ export interface ICard {
   onClick?:any;
 }
 export interface IChefCard {
+  _id?:any;
   id?:number;
   img?: string;
   name?: string;

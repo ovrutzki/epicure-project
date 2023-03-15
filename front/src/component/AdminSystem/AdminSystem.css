@@ -15,6 +15,21 @@
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  gap: 20px;
+}
+#dishes-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+}
+#chefs-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
 }
 table{
     border-collapse: collapse;
@@ -56,4 +71,13 @@ tr:nth-child(even) {
 td img {
   cursor: pointer;
   height: 20px;
+}
+
+.delete-btn:hover{
+  background-color: red;
+  border-radius: 3px;
+}
+.edit-btn:hover{
+  background-color: rgb(3, 194, 61);
+  border-radius: 3px;
 }

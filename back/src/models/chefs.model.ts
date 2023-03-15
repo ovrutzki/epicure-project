@@ -6,7 +6,7 @@ export interface IChef{
     name:string;
     restaurant:number[];
     age:number;
-    icons:string;
+    icons?:string;
     img:string;
     about:string;
 }

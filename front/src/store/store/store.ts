@@ -16,7 +16,7 @@ export interface IRestaurants{
   openDays:number[];
   openYear:number;
   img:string;
-  dishes:string[];
+  dishes:number[];
   rating:string
 }
 export interface IChefs{
@@ -24,7 +24,7 @@ export interface IChefs{
   id:number;
   name:string;
   restaurant:number[];
-  aga:number;
+  age:number;
   icons:string;
   img:string;
   about:string;
@@ -44,6 +44,32 @@ export interface IDishes{
   changes:string[];
   img:string;
 }
+
+export interface AllInOne{
+  _id?:any;
+  id?:number;
+  name?:string;
+  address?:string;
+  chef?:string;
+  chefId?:number;
+  openHours?:string;
+  openDays?:string;
+  openYear?:number;
+  img?:string;
+  dishes?:string ;
+  rating?:string;
+  restaurant?:string;
+  age?:number;
+  icons?:string;
+  about?:string;
+  restaurantId?:number;
+  time?:string;
+  price?:number;
+  allergan?:string;
+  sides?:string;
+  changes?:string;
+}
+
 export interface IRestState {
   default: IRestaurants[];
   value: IRestaurants[]

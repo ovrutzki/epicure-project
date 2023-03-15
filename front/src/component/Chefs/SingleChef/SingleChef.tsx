@@ -30,29 +30,6 @@ const SingleChef: React.FC<IChefCard> = (props) => {
   }
   const firstName: string[] | undefined = specificChef?.name.split(" ");
 
-  //   delete chef:
-  const deleteChef = async (chefId: number) => {
-    try {
-      const deleteItem = await axios.delete("http://localhost:8000/api/chefs", {
-        data: {
-          _id: chefId,
-        },
-      });
-      alert("chef deleted ");
-    } catch (error: any) {
-      alert(error.message);
-      console.log(error);
-    }
-  };
-  const afterDelete = () => {
-    navigate("/");
-    // setGreeting(false);
-  };
-
-  const handelDelete = () => {
-    deleteChef(specificChef._id);
-    setTimeout(afterDelete, 3000);
-  };
   //   ======
   // adding restaurant
   const pushingRestToBackend = async (
@@ -98,9 +75,7 @@ const SingleChef: React.FC<IChefCard> = (props) => {
     let restChef = e.target.elements[3].value;
     let openHour = Number(e.target.elements[4].value);
     let closeHour = Number(e.target.elements[5].value);
-    let openingDays = e.target.elements[6].value
-      .split(",")
-      .map((e: string) => Number(e));
+    let openingDays = e.target.elements[6].value.split(",").map((e: string) => Number(e));
     let openingYear = Number(e.target.elements[7].value);
     let imageURL = e.target.elements[8].value;
     let rating = e.target.elements[9].value;
@@ -148,7 +123,7 @@ const SingleChef: React.FC<IChefCard> = (props) => {
         >
           Add Restaurant
         </button>
-        <button onClick={handelDelete} id="delete-chef-btn">
+        <button  id="delete-chef-btn">
           Delete Chef
         </button>
         {openAddingModal && (

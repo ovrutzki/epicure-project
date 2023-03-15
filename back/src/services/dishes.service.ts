@@ -1,4 +1,4 @@
-import { DishesModal } from "../models/dishes.model";
+import { DishesModal, IDish } from "../models/dishes.model";
 
 export const getDishes = async () => {
     try {
@@ -25,6 +25,29 @@ export const getDishes = async () => {
     console.log(dishId);
     try {
       await DishesModal.findByIdAndDelete(dishId);
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
+  export const dishToAdd = async (newDish: IDish) => {
+    try {
+      const _newDish = new DishesModal(newDish);
+      await _newDish.save();
+      return _newDish;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
+  export const updateDish =  async (_id:string, dish:IDish) => {
+    try {
+     const _dish =  await DishesModal.findByIdAndUpdate(_id, dish);
+     if(_dish){
+      return (_dish)
+     }
     } catch (err) {
       console.log(err);
       throw err;

@@ -18,55 +18,18 @@ const SingleRest: React.FC<any> = (props) => {
   let d = new Date();
   const specificRest = restArray[restIndex];
 
-  const deleteRestaurant = async (restId: number) => {
-    try {
-      const deleteItem = await axios.delete(
-        "http://localhost:8000/api/restaurants",
-        {
-          data: {
-            _id: restId,
-          },
-        }
-      );
-        alert("delete ")
-    } catch (error: any) {
-      alert(error.message);
-      console.log(error);
-    }
-  };
-  const deleteRestaurantDishes = async (restId: number) => {
-    try {
-      const deleteItem = await axios.delete(
-        "http://localhost:8000/api/dishes",
-        {
-          data: {
-            restaurantId: restId,
-          },
-        }
-      );
-        alert("dishes delete")
-    } catch (error: any) {
-      alert(error.message);
-      console.log(error);
-    }
-  };
+  
   const afterDelete = () => {
     navigate("/");
     // setGreeting(false);
   };
 
-  const handelDelete = () =>{
-    deleteRestaurantDishes(specificRest.id);
-    deleteRestaurant(specificRest._id);
-    setTimeout(afterDelete, 3000);
-  }
-  
+
   return (
     <>
       <Navbar />
       <div id="main">
         <button
-          onClick={handelDelete}
           id="delete-rest-btn"
         >
           Delete Restaurant

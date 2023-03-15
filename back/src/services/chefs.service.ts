@@ -1,4 +1,4 @@
-import { ChefsModal } from "../models/chefs.model";
+import { ChefsModal, IChef } from "../models/chefs.model";
 
 export const getChefs = async () => {
     try {
@@ -18,3 +18,27 @@ export const getChefs = async () => {
       throw err;
     }
   };
+
+  export const chefToAdd = async (newChef: IChef) => {
+    try {
+      const _newChef = new ChefsModal(newChef);
+      await _newChef.save();
+      return _newChef;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+
+  export const updateChef =  async (_id:string, chef:IChef) => {
+    try {
+     const _chef =  await ChefsModal.findByIdAndUpdate(_id, chef);
+     if(_chef){
+      return (_chef)
+     }
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  };
+  
