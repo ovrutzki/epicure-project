@@ -28,24 +28,18 @@ const EditingData: React.FC<AllInOne> = (props: AllInOne) => {
   const handelSubmit = () => {
     if (values._id) {
       if (values.openHours) {
-        console.log("test");
         editExistingRestaurant(values)
       } else if (values.price) {
-        console.log("test");
         editExistingDish(values)
       } else if (values.restaurant) {
-        console.log("test");
         editExistingChef(values)
       }
     } else  {
       if (values.openHours) {
-        console.log("else");
         pushingRestToBackend(values);
       } else if (values.price) {
-        console.log("else");
         pushingDishToBackend(values);
       } else if (values.restaurant) {
-        console.log("else");
         pushingChefToBackend(values);
       }
     }

@@ -6,6 +6,9 @@ import axios from "axios";
         data: {
           _id: dishId,
         },
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+        },
       });
       alert("dish deleted ");
     } catch (error: any) {

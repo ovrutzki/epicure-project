@@ -54,6 +54,7 @@ const SignIn: React.FC = () => {
           phone: phone,
           email: email,
           password: password,
+          role:"user"
         }
       );
       successfullyRegister()
@@ -91,7 +92,7 @@ const SignIn: React.FC = () => {
         {greeting ? <h1>hello {firstName}, Please log-in now</h1> : 
         <>
         <div id="sign-title">
-          <h1>Sign in</h1>
+          <h1>Sign Up</h1>
           <h2>Please enter your details</h2>
         </div>
         <form id="sign-details" action="">

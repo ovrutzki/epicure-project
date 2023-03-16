@@ -8,7 +8,7 @@ const NAMESPACE = "auth";
      console.info(NAMESPACE, 'validated token.');
      
      let token = req.headers.authorization?.split(' ')[1];
-    console.log(" token",token)
+     
     if (token){
         JWT.verify(token, config.server.token.secret, (error, decoded) =>{
             if(error){
@@ -18,6 +18,7 @@ const NAMESPACE = "auth";
                 });
             } else {
                 res.locals.jwt = decoded;
+                const role = token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).role;
                 next()
             }
         })

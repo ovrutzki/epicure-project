@@ -22,7 +22,6 @@ export const editExistingDish = async (values: AllInOne) => {
   const img = values.img;
   const _id = values._id;
 
-  console.log(values);
 
   try {
     const addingChef = await axios.post(
@@ -41,6 +40,10 @@ export const editExistingDish = async (values: AllInOne) => {
         changes: changes,
         img: img,
         _id: _id,
+      }, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+        },
       }
     );
     alert("dish details update");

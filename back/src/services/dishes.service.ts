@@ -22,7 +22,6 @@ export const getDishes = async () => {
   };
 
   export const removeDish = async (dishId: number) => {
-    console.log(dishId);
     try {
       await DishesModal.findByIdAndDelete(dishId);
     } catch (err) {

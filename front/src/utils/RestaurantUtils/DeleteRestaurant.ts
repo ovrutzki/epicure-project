@@ -8,6 +8,9 @@ export const deleteRestaurant = async (restId: number) => {
           data: {
             _id: restId,
           },
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+          },
         }
       );
         alert("delete ")
@@ -24,6 +27,9 @@ export const deleteRestaurant = async (restId: number) => {
         {
           data: {
             restaurantId: restId,
+          },
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
           },
         }
       );

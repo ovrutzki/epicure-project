@@ -35,6 +35,10 @@ export const pushingRestToBackend = async (values: AllInOne) => {
         img: img,
         dishes: dishes,
         rating: rating,
+      }, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+        },
       }
     );
     alert("restaurant added");

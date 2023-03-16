@@ -49,8 +49,8 @@ const LogIn: React.FC = () => {
           password: password,
         }
       );
-      sessionStorage.setItem("user-logged-in",JSON.stringify(userData.data.user));
-      sessionStorage.setItem("user-token", JSON.stringify(userData.data.token));
+      sessionStorage.setItem("user-logged-in",userData.data.user.role);
+      sessionStorage.setItem("user-token", userData.data.token);
       dispatch(getUserData(userData.data.user));
       dispatch(getUserToken(userData.data.token));
       setFirstName(userData.data.user.first);

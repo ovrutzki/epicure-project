@@ -36,6 +36,7 @@ export const newUser = async (req: Request, res: Response) => {
   const phone = req.body.phone;
   const email = req.body.email;
   const password = req.body.password;
+  const role = req.body.role
   const allUsers: IUser[] = await getUsers();
   try {
     if (!(first && last && address && phone && email && password)) {
@@ -56,6 +57,7 @@ export const newUser = async (req: Request, res: Response) => {
       phone: phone,
       email: email,
       password: encryptedPassword,
+      role:role
     };
     const users = registerNewUser(user);
     return res.status(200).json({

@@ -38,6 +38,10 @@ export const pushingDishToBackend = async (values: AllInOne) => {
         sides: sides,
         changes: changes,
         img: img,
+      },{
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+        },
       }
     );
     alert("dish added");
