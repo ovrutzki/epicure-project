@@ -67,32 +67,7 @@ const SingleChef: React.FC<IChefCard> = (props) => {
         alert(err.response.data);
     }
   };
-  const submitFunction = (e: any) => {
-    e.preventDefault();
-    let restName = e.target.elements[0].value;
-    let restLong = Number(e.target.elements[1].value);
-    let restLat = Number(e.target.elements[2].value);
-    let restChef = e.target.elements[3].value;
-    let openHour = Number(e.target.elements[4].value);
-    let closeHour = Number(e.target.elements[5].value);
-    let openingDays = e.target.elements[6].value.split(",").map((e: string) => Number(e));
-    let openingYear = Number(e.target.elements[7].value);
-    let imageURL = e.target.elements[8].value;
-    let rating = e.target.elements[9].value;
-    pushingRestToBackend(
-      restName,
-      restLong,
-      restLat,
-      restChef,
-      openHour,
-      closeHour,
-      openingDays,
-      openingYear,
-      imageURL,
-      rating
-    );
-  };
-
+  
   return (
     <>
       <Navbar />
@@ -117,104 +92,6 @@ const SingleChef: React.FC<IChefCard> = (props) => {
             />
           ))}
         </div>
-        <button
-          onClick={() => setOpenAddingModal(!openAddingModal)}
-          id="add-rest-btn"
-        >
-          Add Restaurant
-        </button>
-        <button  id="delete-chef-btn">
-          Delete Chef
-        </button>
-        {openAddingModal && (
-          <div id="add-rest-modal">
-            <div id="rest-details">
-              <button
-                id="close"
-                onClick={() => setOpenAddingModal(!openAddingModal)}
-              >
-                X
-              </button>
-              <h1>Enter The Restaurant Details</h1>
-              <form onSubmit={submitFunction} id="sign-details" action="">
-                <label htmlFor="">Restaurant Name</label>
-                <input
-                  //   onChange={(e) => setFirstName(e.target.value)}
-                  type="text"
-                  name="rest-name"
-                  placeholder="Enter The Restaurant Name"
-                />
-                <label htmlFor="">Address (longitude,latitude)</label>
-                <input
-                  //   onChange={(e) => setLastName(e.target.value)}
-                  type="text"
-                  name="longitude"
-                  placeholder="Enter The Restaurant longitude"
-                />
-                <input
-                  //   onChange={(e) => setLastName(e.target.value)}
-                  type="text"
-                  name="address"
-                  placeholder="Enter The Restaurant latitude"
-                />
-                <label htmlFor="">Chef Name</label>
-                <input
-                  //   onChange={(e) => setAddress(e.target.value)}
-                  type="text"
-                  name="chef"
-                  placeholder="Enter Chef Name"
-                />
-                <label htmlFor="">Open Hours</label>
-                <div id="hours-div">
-                  <input
-                    //   onChange={(e) => setPhone(e.target.value)}
-                    type="text"
-                    name="open"
-                    placeholder="Opening"
-                  />
-                  <p>-</p>
-                  <input
-                    //   onChange={(e) => setPhone(e.target.value)}
-                    type="text"
-                    name="close"
-                    placeholder="closing"
-                  />
-                </div>
-                <label htmlFor="">Open Days</label>
-                <input
-                  //   onChange={(e) => setPhone(e.target.value)}
-                  type="text"
-                  name="days"
-                  placeholder="Sunday=0, Saturday=6 with coma"
-                />
-                <label htmlFor="">Open Years</label>
-                <input
-                  //   onChange={(e) => setPhone(e.target.value)}
-                  type="text"
-                  name="Year"
-                  placeholder="Enter The Opening Years"
-                />
-                <label htmlFor="">restaurant Image</label>
-                <input
-                  //   onChange={emailOnChange}
-                  type="text"
-                  name="image"
-                  placeholder="Enter an Image URL Path"
-                />
-                <label htmlFor="">Restaurant Rating</label>
-                <input
-                  //   onChange={emailOnChange}
-                  type="text"
-                  name="rating"
-                  placeholder="What is the restaurant rating?>"
-                />
-                <button id="submit-btn" type="submit">
-                  SUBMIT
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
       </div>
       <Footer />
     </>

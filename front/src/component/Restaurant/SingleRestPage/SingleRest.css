@@ -45,19 +45,7 @@
   height: 2vw;
   margin: 2.3vw 0 3.3vw 0;
 }
-#delete-rest-btn{
-  position: absolute;
-  margin-top: 5px;
-  font-family: Helvetica light;
-  font-weight: bold;
-  right: 0;
-  width: 8.7vw;
-  color: white;
-  background-color: black;
-}
-#delete-rest-btn:hover{
-  background-color: darkred;
-}
+
 @media screen and (max-width: 450px) {
   #main {
     padding: 0;

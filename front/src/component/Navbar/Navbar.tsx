@@ -5,12 +5,15 @@ import "./navStyle.css";
 import "../../fonts/helvetica/HelveticaNeue.ttf";
 import { NavLink } from "react-router-dom";
 import CartPopUp from "../CartapopUp/CartPopUp";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "../../store/store/store";
 import {IoMdMenu} from "react-icons/io"
 import {AiOutlineClose} from 'react-icons/ai'
 import MobileMenu from "./MobileMenu/MobileMenu";
+import { getUserData } from "../../store/slicer/userSlicre";
 const Navbar: React.FC = () => {
+  const dispatch = useDispatch();
+
   const navigate: any = useNavigate();
   const [openCartModal, setOpenCartModal] = useState<boolean>(false);
   const [openMenu, setOpenMenu] = useState<boolean>(false)
@@ -18,7 +21,13 @@ const Navbar: React.FC = () => {
     (state: IRootState) => state.order.value.length
     );
     const userSelector = useSelector((state: IRootState) => state.user.userInfo);
+    const userDataString = (sessionStorage.getItem('user-logged-in'));
+    const userDataObj =userDataString && JSON.parse(userDataString)
     const [userName, setUserName] = useState<string | undefined>("Guest")
+
+    useEffect(()=>{
+      dispatch(getUserData(userDataObj));
+    },[])
   // close the cart pop up
   let cartRef = useRef<HTMLElement>();
   let cartButtonRef: any = useRef();

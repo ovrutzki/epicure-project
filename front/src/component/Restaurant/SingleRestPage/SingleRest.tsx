@@ -29,11 +29,6 @@ const SingleRest: React.FC<any> = (props) => {
     <>
       <Navbar />
       <div id="main">
-        <button
-          id="delete-rest-btn"
-        >
-          Delete Restaurant
-        </button>
         <Card
           class="single-rest"
           img={specificRest.img}

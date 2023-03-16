@@ -75,7 +75,7 @@ export const loginUser = async (req: Request, res: Response) => {
   const password = req.body.password;
   try {
     const user = await UserModel.findOne({ email: email });
-    const userToReturn = await UserModel.findOne({ email: email }).select('-password');
+    const userToReturn = await UserModel.findOne({ email: email }).select('-password -address -_id -phone');
 
     if (!user) {
       return res.status(401).json({

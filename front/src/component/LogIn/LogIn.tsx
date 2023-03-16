@@ -14,6 +14,7 @@ import axios from "axios";
 const LogIn: React.FC = () => {
   const dispatch = useDispatch();
   const userSelector = useSelector((state: IRootState) => state.user.userInfo);
+  const userLogged = sessionStorage.getItem("user-logged-in")
   const userTokenState = useSelector((state: IRootState) => state.user.token);
   const navigate = useNavigate();
   const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] =
@@ -22,7 +23,6 @@ const LogIn: React.FC = () => {
   const [userInfo, setUserInfo] = useState<IUser>();
   const [userToken, setUserToken] = useState<string>();
   const [isAuth, setIsAuth] = useState<boolean>(false);
-  const [greeting, setGreeting] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string | undefined>("");
 
   const [black, setBlack] = useState<string>("");
@@ -49,12 +49,12 @@ const LogIn: React.FC = () => {
           password: password,
         }
       );
-      sessionStorage.setItem("user-logged-in",userData.data.user.role);
+      sessionStorage.setItem("user-logged-in",JSON.stringify(userData.data.user));
       sessionStorage.setItem("user-token", userData.data.token);
       dispatch(getUserData(userData.data.user));
       dispatch(getUserToken(userData.data.token));
       setFirstName(userData.data.user.first);
-      successfullyLogin();
+      navigate("/")
     } catch (error: any) {
       alert(error.message);
       console.log(error);
@@ -64,24 +64,30 @@ const LogIn: React.FC = () => {
   const handleLogin = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     loginUser(email, password);
+    setTimeout(navigateFunction, 1000);
   };
 
   const navigateFunction = () => {
     navigate("/");
-    setGreeting(false);
-  };
-  const successfullyLogin = () => {
-    setGreeting(true);
-    setTimeout(navigateFunction, 3000);
   };
 
+  const logOut = () =>{
+    sessionStorage.clear()
+    setTimeout(navigateFunction, 1000);
+
+  }
+  
   return (
     <>
       <Navbar />
       <div id="login-container">
         <div id="login-main">
-          {greeting ? (
-            <h1>Welcome Back {firstName}</h1>
+          {userLogged ? (<>
+            <h1>Welcome <span>{userSelector.first}</span>, you are logged-in now</h1>
+            <button onClick={logOut}  id="sign-in-btn">
+                LOG OUT
+              </button>
+              </>
           ) : (
             <>
               <div id="title">

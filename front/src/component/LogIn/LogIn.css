@@ -114,4 +114,7 @@
   #sign-in-btn:hover{
       background-color: rgba(81, 81, 81, 1);
   }
+  span{
+    font-family: "Helvetica bold";
+  }
   

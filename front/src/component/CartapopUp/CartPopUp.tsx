@@ -13,6 +13,8 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
     const dispatch = useDispatch()
     const dishesInCart = useSelector((state: IRootState) => state.order.value);
     const checkoutPrice = useSelector((state: IRootState) => state.order.checkoutPrice);
+    const userSelector = useSelector((state: IRootState) => state.user.userInfo);
+
     const [checkOut, setCheckOut] = useState(0)
     useEffect(() => {
         setCheckOut( checkOut + checkoutPrice)
@@ -21,6 +23,7 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
   return (
     <div ref={props.refprops} id='cart-container'>
         <h1>YOUR ORDER</h1>
+        <h1>{userSelector.first}</h1>
 { dishesInCart[0] ?  <><h2>{dishesInCart[0].restaurantName}</h2>
         <div id='dish-in-cart'>
         {dishesInCart.map((dish:IOrderState,index:number)=> {
