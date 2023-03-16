@@ -19,7 +19,7 @@ export const pushingRestToBackend = async (values: AllInOne) => {
   const openDays = values.openDays?.split(",").map(Number);
   const openYear = Number(values.openYear);
   const dishes = values.dishes?.split(",").map(Number);
-  console.log(chefId, address, dishes);
+
   try {
     const addingRest = await axios.post(
       "http://localhost:8000/api/restaurants/adding",

@@ -21,8 +21,7 @@ export const pushingDishToBackend = async (values: AllInOne) => {
   const changes = values.changes;
   const img = values.img;
 
-  console.log(values);
-
+  
   try {
     const addingDish = await axios.post(
       "http://localhost:8000/api/dishes/adding",

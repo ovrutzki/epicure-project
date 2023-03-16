@@ -11,6 +11,7 @@ import { editExistingChef } from "../../../utils/ChefUtils/EditChef";
 import { pushingDishToBackend } from "../../../utils/DishUtils/addingDish";
 import { editExistingDish } from "../../../utils/DishUtils/EditDish";
 import { pushingRestToBackend } from "../../../utils/RestaurantUtils/AddingRestaurant";
+import { editExistingRestaurant } from "../../../utils/RestaurantUtils/EditRestaurant";
 
 import "./EditingData.css";
 
@@ -26,30 +27,38 @@ const EditingData: React.FC<AllInOne> = (props: AllInOne) => {
   };
   const handelSubmit = () => {
     if (values._id) {
-      if (values.address) {
-        // editExistingRestaurant(values)
+      if (values.openHours) {
+        console.log("test");
+        editExistingRestaurant(values)
       } else if (values.price) {
+        console.log("test");
         editExistingDish(values)
       } else if (values.restaurant) {
+        console.log("test");
         editExistingChef(values)
       }
-    } else {
-      if (values.address) {
+    } else  {
+      if (values.openHours) {
+        console.log("else");
         pushingRestToBackend(values);
       } else if (values.price) {
+        console.log("else");
         pushingDishToBackend(values);
       } else if (values.restaurant) {
+        console.log("else");
         pushingChefToBackend(values);
       }
     }
+    props.onclose();
   };
+  
   return (
     <>
       <div id="edit-container">
-        <div id="edit-modal">
+        <div ref={props.refProps} id="edit-modal">
           <h1>Add or Update your details</h1>
           <form>
-            {Object.keys(props).map((propName) => (
+            {Object.keys(props).filter((prop) => prop != "_id" && prop != "refProps" && prop != "onclose").map((propName) => (
               <label key={propName}>
                 {propName}
                 <input

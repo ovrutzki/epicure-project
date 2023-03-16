@@ -29,3 +29,15 @@ export const restaurantToAdd = async (newRest: IRestaurant) => {
     throw err;
   }
 };
+
+export const updateRestaurant =  async (_id:string, rest:IRestaurant) => {
+  try {
+   const _rest =  await RestaurantsModal.findByIdAndUpdate(_id, rest);
+   if(_rest){
+    return (_rest)
+   }
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};

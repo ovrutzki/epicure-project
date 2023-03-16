@@ -68,6 +68,8 @@ export interface AllInOne{
   allergan?:string;
   sides?:string;
   changes?:string;
+  refProps?:any;
+  onclose?: any;
 }
 
 export interface IRestState {

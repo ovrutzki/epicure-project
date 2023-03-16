@@ -53,27 +53,7 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
     props.onClose();
   };
 
-  const deleteDish = async (id: number) => {
-    try {
-      const deleteItem = await axios.delete(
-        "http://localhost:8000/api/dishes/oneDish",
-        {
-          data: {
-            _id: id,
-          },
-        }
-      );
-        alert("Dish deleted")
-    } catch (error: any) {
-      alert(error.message);
-      console.log(error);
-    }
-  };
-
-  const handelDelete = () =>{
-    deleteDish(clickedDish?._id);
-    window.location.reload()
-  }
+  
 
   return (
     <>
@@ -136,7 +116,6 @@ const DishModal: React.FC<IModal> = (props: IModal) => {
             </button>
           </div>
         </div>
-        <button ref={props.btnRefProps} onClick={handelDelete} id="delete-dish-btn"> Delete this Dish</button>
       </div>
     </>
   );
