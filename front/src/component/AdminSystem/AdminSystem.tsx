@@ -75,6 +75,7 @@ const AdminSystem: React.FC = () => {
         {collection === "Chefs" && (
           <div id="chefs-data">
             <table>
+              <tbody>
               <tr>
                 <th>ID</th>
                 <th>NAME</th>
@@ -121,6 +122,7 @@ const AdminSystem: React.FC = () => {
                   </tr>
                 );
               })}
+              </tbody>
             </table>
             <button onClick={() => setOpenAdding(true)}>
               <img src="/image/icons/add-new.png" alt="add new" />
@@ -140,6 +142,7 @@ const AdminSystem: React.FC = () => {
         {collection === "Restaurants" && (
           <div id="restaurants-data">
             <table>
+              <tbody>
               <tr>
                 <th>ID</th>
                 <th>NAME</th>
@@ -157,7 +160,7 @@ const AdminSystem: React.FC = () => {
               </tr>
               {restaurantsArray.map((rest: IRestaurants, index: number) => {
                 return (
-                  <tr key={index * 800}>
+                  <tr key={index * 802}>
                     <td>{rest.id}</td>
                     <td>{rest.name}</td>
                     <td>{rest.address}</td>
@@ -205,6 +208,7 @@ const AdminSystem: React.FC = () => {
                   </tr>
                 );
               })}
+              </tbody>
             </table>
             <button onClick={() => setOpenAdding(true)}>
               <img src="/image/icons/add-new.png" alt="add new" />
@@ -228,6 +232,7 @@ const AdminSystem: React.FC = () => {
         {collection === "Dishes" && (
           <div id="dishes-data">
             <table>
+              <tbody>
               <tr>
                 <th>ID</th>
                 <th>NAME</th>
@@ -246,7 +251,7 @@ const AdminSystem: React.FC = () => {
               </tr>
               {dishesArray.map((dish: IDishes, index: number) => {
                 return (
-                  <tr key={index * 900}>
+                  <tr key={index * 904}>
                     <td>{dish.id}</td>
                     <td>{dish.name}</td>
                     <td>{dish.restaurantId}</td>
@@ -256,8 +261,8 @@ const AdminSystem: React.FC = () => {
                     <td>{dish.price}</td>
                     <td>{dish.allergan}</td>
                     <td>
-                      {dish.icons.map((icon) => (
-                        <img src={icon} />
+                      {dish.icons.map((icon, index) => (
+                        <img key={index*111} src={icon} />
                       ))}
                     </td>
                     <td>{dish.sides.join(", ")}</td>
@@ -295,6 +300,7 @@ const AdminSystem: React.FC = () => {
                   </tr>
                 );
               })}
+              </tbody>
             </table>
             <button onClick={() => setOpenAdding(true)}>
               <img src="/image/icons/add-new.png" alt="add new" />

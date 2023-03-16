@@ -11,7 +11,7 @@ type Props = IRestaurants | IDishes | IChefs;
 export const editExistingChef = async (values: AllInOne) => {
   const id = values.id;
   const name = values.name;
-  const restaurant = values.restaurant?.map(Number);
+  const restaurant = values.restaurant;
   const age = values.age;
   const img = values.img;
   const about = values.about;

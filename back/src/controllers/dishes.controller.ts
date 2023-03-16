@@ -71,13 +71,13 @@ export const getAllDishes = async (req: Request, res: Response) => {
       restaurantId:restaurantId,
       chef:chef,
       rating:rating,
-      time:time,
+      time:time.split(","),
       about:about,
       price:price,
       allergan:allergan,
-      icons:icons,
-      sides:sides,
-      changes:changes,
+      icons:icons.split(","),
+      sides:sides.split(","),
+      changes:changes.split(","),
       img:img
     }
     dishToAdd(newDish);
@@ -91,13 +91,41 @@ export const getAllDishes = async (req: Request, res: Response) => {
   }
 }
 export const editDish =  async (req: Request, res: Response) => {
+  const id=req.body.id;
+    const name=req.body.name;
+    const restaurantId=req.body.restaurantId;
+    const chef=req.body.chef;
+    const rating=req.body.rating;
+    const time=req.body.time;
+    const about=req.body.about;
+    const price=req.body.price;
+    const allergan=req.body.allergan;
+    const icons=req.body.icons;
+    const sides=req.body.sides;
+    const changes=req.body.changes;
+    const img=req.body.img;
   try {
-    const chef = updateDish(req.body._id, req.body);
+    const newDishData = {
+      id:id,
+      name:name,
+      restaurantId:restaurantId,
+      chef:chef,
+      rating:rating,
+      time:time.split(","),
+      about:about,
+      price:price,
+      allergan:allergan,
+      icons:icons.split(","),
+      sides:sides.split(","),
+      changes:changes.split(","),
+      img:img
+    }
+    const dish = updateDish(req.body._id, newDishData);
     return res
       .status(200)
       .json({
         status: 200,
-        data: chef,
+        data: dish,
         message: "Successfully Update dish",
       });
   } catch (err: any) {
