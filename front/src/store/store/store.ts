@@ -86,7 +86,7 @@ export interface IDishState {
   allDishes: IDishes[];
 }
 export interface IOrderState{
-  dbId:any;
+  dbId?:any;
   dishId?:number
   restaurantId?:number;
   price?:number;

@@ -1,7 +1,8 @@
+import axios from 'axios'
 import React, { HtmlHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { RefactorActionInfo } from 'typescript'
-import { deleteFromCart } from '../../store/slicer/orderSlicer'
+import { deleteFromCart, getCartFromDb } from '../../store/slicer/orderSlicer'
 import { IOrderState, IRootState } from '../../store/store/store'
 import "./CartPopUp.css"
 
@@ -11,9 +12,36 @@ export interface ICartModal{
 
 const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
     const dispatch = useDispatch()
-    const dishesInCart = useSelector((state: IRootState) => state.order.value);
+    const dishesInCartArray = useSelector((state: IRootState) => state.order.value);
     const checkoutPrice = useSelector((state: IRootState) => state.order.checkoutPrice);
     const userSelector = useSelector((state: IRootState) => state.user.userInfo);
+    const userDataString = (sessionStorage.getItem('user-logged-in'));
+    const userDataObj =userDataString && JSON.parse(userDataString)
+    const [dishesInCart, setDishesInCart] = useState(dishesInCartArray)
+    const [flag, setFlag] = useState<boolean>(false)
+    const userCart = async () =>{
+        try{
+            const getUserCart = await axios.get("http://localhost:8000/api/users/getCart",{
+              
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.getItem("user-token")}`,
+                  }
+            });
+             dispatch(getCartFromDb(getUserCart.data)) 
+             setFlag(true)
+             return getUserCart
+        } catch (error: any) {
+            alert(error.message);
+            console.log(error);
+        }
+        
+    }
+    useEffect(()=>{
+        if(sessionStorage.getItem("user-token")){
+            userCart()
+            setDishesInCart(dishesInCartArray)
+        }
+    },[flag])
 
     const [checkOut, setCheckOut] = useState(0)
     useEffect(() => {
@@ -23,7 +51,7 @@ const CartPopUp: React.FC<ICartModal> = (props:ICartModal)=> {
   return (
     <div ref={props.refprops} id='cart-container'>
         <h1>YOUR ORDER</h1>
-        <h1>{userSelector.first}</h1>
+        {userDataObj ? <h1>{userDataObj.first}</h1> : <h1>Guest</h1>}
 { dishesInCart[0] ?  <><h2>{dishesInCart[0].restaurantName}</h2>
         <div id='dish-in-cart'>
         {dishesInCart.map((dish:IOrderState,index:number)=> {

@@ -26,3 +26,37 @@ export const registerNewUser = async (user: IUser) => {
     throw err;
   }
 };
+
+
+
+export const UpDateCart =  async (_id:Object, dish:Object) => {
+  console.log(_id, "id");
+  
+  try {
+   const _rest =  await UserModel.findOneAndUpdate({_id:_id}, {$push:{dishInCart:dish}})
+   if(_rest){
+    return (_rest)
+   }
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
+
+export const getUsersCart = async (user_id:Object | undefined) => {
+  const userCart = await UserModel.findById(user_id)
+  .select('dishInCart -_id')
+   .exec()
+   .then(cart => {
+     return cart
+   })
+   .catch((err) =>{
+     console.log(err);
+     throw err;
+   })
+   
+ return userCart
+};
+
+   

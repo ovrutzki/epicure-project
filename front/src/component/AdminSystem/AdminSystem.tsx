@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { IChefCard } from "../../interFaces/interFaces";
 import {
   IChefs,
@@ -23,6 +24,8 @@ import "./AdminSystem.css";
 import EditingData from "./EditingData/EditingData";
 
 const AdminSystem: React.FC = () => {
+  const navigate = useNavigate();
+
   const [openEditor, setOpenEditor] = useState<number>();
   const [openAdding, setOpenAdding] = useState<boolean>(false);
   const dishesArray = useSelector(
@@ -88,10 +91,14 @@ const AdminSystem: React.FC = () => {
       alert("try again");
     }
   };
+  const userLogged = sessionStorage.getItem("user-logged-in")
+
+console.log(userLogged);
 
   return (
     <>
       <Navbar />
+        {userLogged?.includes('admin' || "chef")? 
       <div id="admin-container">
         <div id="filter-div">
           <FilterButtons name="Chefs" onClick={() => setCollection("Chefs")} />
@@ -389,6 +396,7 @@ const AdminSystem: React.FC = () => {
           </div>
         )}
       </div>
+         : <h1>you don`t have permission for this page</h1>}
 
       <Footer />
     </>

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addCartToUserData } from "../../utils/UserUtils/addCartToUserData";
 import { IDishes, IOrder, IOrderState } from "../store/store";
 
 let dishes:IDishes[] = [];
@@ -25,9 +26,22 @@ export const orderSlicer = createSlice({
         if(state.value.every((dish:IOrderState) => dish.restaurantId === action.payload.restaurantId)){
             state.value = [...state.value, action.payload]
             state.checkoutPrice += action.payload.totalPrice
+            sessionStorage.setItem("dish-in-cart",JSON.stringify(state.value))
+            if(sessionStorage.getItem("user-logged-in")){
+              addCartToUserData(action.payload)
+            }
         } else {
             alert("we can`t do order from more then 0ne restaurant")
         }
+    },
+    getCartFromDb:(state:IOrder,action) => {
+            state.value = action.payload.dishInCart
+            sessionStorage.setItem("dish-in-cart",JSON.stringify(state.value))
+            console.log(action.payload.dishInCart);
+            console.log(state.value);
+    },
+    emptyCart:(state) =>{
+      state.value = []
     },
     deleteFromCart:(state:IOrder,action) =>{
         // const x = state.value.findIndex((dish) => dish.dishId === action.payload)
@@ -36,5 +50,5 @@ export const orderSlicer = createSlice({
   },
 });
 
-export const {addToCart, deleteFromCart} = orderSlicer.actions
+export const {addToCart, deleteFromCart, getCartFromDb, emptyCart} = orderSlicer.actions
 export default orderSlicer.reducer;

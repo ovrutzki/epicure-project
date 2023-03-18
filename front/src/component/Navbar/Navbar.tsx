@@ -17,9 +17,8 @@ const Navbar: React.FC = () => {
   const navigate: any = useNavigate();
   const [openCartModal, setOpenCartModal] = useState<boolean>(false);
   const [openMenu, setOpenMenu] = useState<boolean>(false)
-  const amountInCart = useSelector(
-    (state: IRootState) => state.order.value.length
-    );
+  const dishesInCart =  useSelector((state: IRootState) => state.order.value);
+  const amountInCart = dishesInCart && dishesInCart.length;
     const userSelector = useSelector((state: IRootState) => state.user.userInfo);
     const userDataString = (sessionStorage.getItem('user-logged-in'));
     const userDataObj =userDataString && JSON.parse(userDataString)

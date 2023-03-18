@@ -4,8 +4,10 @@ import {
   getAllUsers,
   loginUser,
   validateToken,
+  addDish,
+  getUserCart
 } from "../controllers/users.controller";
-import { authCheck } from "../middleware/authCheck";
+import { authCheck, UserCheck } from "../middleware/authCheck";
 import extractJWT from "../middleware/extractJWT";
 
 const userRouter = express.Router();
@@ -16,6 +18,11 @@ userRouter.post("/register", newUser);
 
 userRouter.post("/login", loginUser);
 
+userRouter.post("/addDish", addDish);
+
 userRouter.get("/get/all",authCheck(['"admin"']), getAllUsers);
+
+userRouter.get("/getCart", getUserCart);
+
 
 export default userRouter;

@@ -9,6 +9,8 @@ export interface IUser{
     email:string;
     password:string;
     role:string;
+    dishInCart?:object[];
+    orderHistory?:object[]
 }
 
 export const userSchema = new Schema<IUser>({
@@ -18,7 +20,9 @@ export const userSchema = new Schema<IUser>({
     phone:{type: String},
     email:{type: String,lowercase: true},
     password:{type: String},
-    role:{type: String, default:"user"}
+    role:{type: String, default:"user"},
+    dishInCart:{type: [Object]},
+    orderHistory:{type: [[Object]]}
 })
 
 export const UserModel = mongoose.model<IUser>("users", userSchema);

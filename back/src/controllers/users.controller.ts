@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { getUsers, registerNewUser } from "../services/users.service";
+import { getUsers, registerNewUser, UpDateCart, getUsersCart } from "../services/users.service";
 import bcrypt from "bcrypt";
 import { IUser, UserModel } from "../models/users.model";
 import logging from "../config/logging";
@@ -75,7 +75,7 @@ export const loginUser = async (req: Request, res: Response) => {
   const password = req.body.password;
   try {
     const user = await UserModel.findOne({ email: email });
-    const userToReturn = await UserModel.findOne({ email: email }).select('-password -address -_id -phone');
+    const userToReturn = await UserModel.findOne({ email: email }).select('-password -address -phone');
 
     if (!user) {
       return res.status(401).json({
@@ -112,3 +112,38 @@ export const loginUser = async (req: Request, res: Response) => {
     });
   }
 };
+
+
+export const addDish = async (req: Request, res: Response) => {
+        let token = req.headers.authorization?.split(' ')[1] ;
+  const userEmail =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).email;
+  const user = await UserModel.find({email:userEmail})
+  const user_id = user[0]._id.valueOf() 
+        
+  try {
+    const dishToPush = UpDateCart(user_id, req.body);
+    return res.status(200).json({
+      status: 200,
+      data: dishToPush,
+      message: "Successfully Update dishesCart",
+    });
+  } catch (err: any) {
+    console.log(err);
+    throw err;
+  }
+};
+
+export const getUserCart = async (req: Request, res: Response) => {
+  let token = req.headers.authorization?.split(' ')[1] ;
+  const userEmail =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).email;
+  const user = await UserModel.find({email:userEmail})
+  const user_id = user[0]._id.valueOf()    
+            
+  try {
+    const usersCart = await getUsersCart(user_id);
+    return res.status(200).json(usersCart);
+  } catch (err: any) {
+    console.log(err);
+    throw err;
+  }
+}

@@ -10,19 +10,19 @@ import loginUserStore, {
 } from "../../store/slicer/userSlicre";
 import { IRootState, IUser } from "../../store/store/store";
 import axios from "axios";
+import { addCartToUserData } from "../../utils/UserUtils/addCartToUserData";
+import { emptyCart, getCartFromDb } from "../../store/slicer/orderSlicer";
 
 const LogIn: React.FC = () => {
   const dispatch = useDispatch();
   const userSelector = useSelector((state: IRootState) => state.user.userInfo);
+  const dishInCart = useSelector((state: IRootState) => state.order.value);
   const userLogged = sessionStorage.getItem("user-logged-in")
   const userTokenState = useSelector((state: IRootState) => state.user.token);
   const navigate = useNavigate();
   const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] =
     useState("");
   const [password, setPassword] = useState<string>("");
-  const [userInfo, setUserInfo] = useState<IUser>();
-  const [userToken, setUserToken] = useState<string>();
-  const [isAuth, setIsAuth] = useState<boolean>(false);
   const [firstName, setFirstName] = useState<string | undefined>("");
 
   const [black, setBlack] = useState<string>("");
@@ -39,6 +39,9 @@ const LogIn: React.FC = () => {
       setBlack("");
     }
   }, [email, password]);
+  useEffect(() => {
+   
+  }, [firstName]);
 
   const loginUser = async (email: string, password: string) => {
     try {
@@ -54,7 +57,7 @@ const LogIn: React.FC = () => {
       dispatch(getUserData(userData.data.user));
       dispatch(getUserToken(userData.data.token));
       setFirstName(userData.data.user.first);
-      navigate("/")
+      afterLogIn()
     } catch (error: any) {
       alert(error.message);
       console.log(error);
@@ -70,9 +73,16 @@ const LogIn: React.FC = () => {
   const navigateFunction = () => {
     navigate("/");
   };
+  const afterLogIn = () => {
+    dishInCart.map((dish) => {
+      addCartToUserData(dish)
+    })
+    navigateFunction()
+  }
 
   const logOut = () =>{
     sessionStorage.clear()
+    dispatch(emptyCart()) 
     setTimeout(navigateFunction, 1000);
 
   }
