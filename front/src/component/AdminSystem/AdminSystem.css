@@ -47,6 +47,7 @@ th {
   text-overflow: ellipsis;
 }
 td {
+  height: 40px;
   border: 1px black solid;
   font-family: Helvetica light;
   font-weight: bold;

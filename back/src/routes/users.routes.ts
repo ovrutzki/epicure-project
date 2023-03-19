@@ -20,7 +20,7 @@ userRouter.post("/login", loginUser);
 
 userRouter.post("/addDish", addDish);
 
-userRouter.get("/get/all",authCheck(['"admin"']), getAllUsers);
+userRouter.get("/get/all",authCheck(['admin']), getAllUsers);
 
 userRouter.get("/getCart", getUserCart);
 

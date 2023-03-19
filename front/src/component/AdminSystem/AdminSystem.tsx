@@ -93,7 +93,6 @@ const AdminSystem: React.FC = () => {
   };
   const userLogged = sessionStorage.getItem("user-logged-in")
 
-console.log(userLogged);
 
   return (
     <>
@@ -238,7 +237,7 @@ console.log(userLogged);
                       </td>
                       <td>
                         <img
-                          className=""
+                          className="edit-btn"
                           src="/image/icons/edit.svg"
                           alt="edit"
                           onClick={() => setOpenEditor(rest.id)}
@@ -341,6 +340,7 @@ console.log(userLogged);
                       </td>
                       <td>
                         <img
+                        className="edit-btn"
                           src="/image/icons/edit.svg"
                           alt="edit"
                           onClick={() => setOpenEditor(dish.id)}

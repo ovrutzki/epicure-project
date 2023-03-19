@@ -4,7 +4,7 @@ import { UserModel } from "../models/users.model";
 export const authCheck = (permissions: string[]) => {
     return (req: Request, res: Response, next: NextFunction) => {
         let token = req.headers.authorization?.split(' ')[1] ;
-        const userRole =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).role;
+        const userRole =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).role;        
     if (permissions.includes(userRole)) {
         next();
     } else {
@@ -14,14 +14,23 @@ export const authCheck = (permissions: string[]) => {
 };
 
 export const UserCheck = () =>{
-  return async (req: Request, res: Response, next: NextFunction) => {
-      let token = req.headers.authorization?.split(' ')[1] ;
-        const user_id =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())._id;
-       const user = await UserModel.findById(user_id);
-       if(user){
-        next()
-       } else {
-        return res.status(401).json("error while authorized");
-      }
+  console.log("44");
+  try {
+    return async (req: Request, res: Response, next: NextFunction) => {
+         let token = req.headers.authorization?.split(' ')[1] ;
+           const userEmail =token && JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString()).email;
+          const user = await UserModel.findOne({email:userEmail});
+          console.log("zfdbzsdfb");
+          
+          if(userEmail === ""){
+           return next()
+          } else {
+           return res.status(401).json("error while authorized");
+         }
+     }
+    
+  } catch (error) {
+    console.log(error);
+    
   }
 }

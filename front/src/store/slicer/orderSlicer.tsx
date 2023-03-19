@@ -38,7 +38,7 @@ export const orderSlicer = createSlice({
             state.value = action.payload.dishInCart
             sessionStorage.setItem("dish-in-cart",JSON.stringify(state.value))
             console.log(action.payload.dishInCart);
-            console.log(state.value);
+            // state.checkoutPrice = action.payload.dishInCart.map((price:any) => price.totalPrice)
     },
     emptyCart:(state) =>{
       state.value = []
